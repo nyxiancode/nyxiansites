@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Centered</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .video-container {
+            position: relative;
+        }
+        .video-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 1;
+        }
+        video {
+            display: block;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video src="https://nyxiannetwork.web.id/vid/logo.mp4" autoplay muted loop></video>
+    </div>
+</body>
+</html>
