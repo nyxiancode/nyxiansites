@@ -88,12 +88,36 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow */
         }
         .dropbtn i {
             margin-right: 8px;
         }
         .dropdown-content a i {
             margin-right: 10px;
+        }
+        /* Database/server-like appearance */
+        .dropbtn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 80%;
+            height: 2px;
+            background: #007BFF;
+            transform: translateX(-50%);
+            border-radius: 4px 4px 0 0;
+        }
+        .dropbtn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 80%;
+            height: 2px;
+            background: #007BFF;
+            transform: translateX(-50%);
+            border-radius: 0 0 4px 4px;
         }
     </style>
 </head>
@@ -102,7 +126,7 @@
         <video src="https://nyxiannetwork.web.id/vid/logo.mp4" autoplay muted loop></video>
     </div>
     <div class="dropdown">
-        <button class="dropbtn"><i class="fas fa-database"></i>Komunitas</button>
+        <button class="dropbtn"><i class="fas fa-server"></i>Komunitas</button>
         <div class="dropdown-content">
             <a href="https://t.me/NyxianSactuary" target="_blank"><i class="fas fa-users"></i>Grup</a>
             <a href="https://t.me/NyxianNetwork" target="_blank"><i class="fas fa-bullhorn"></i>Channel</a>
