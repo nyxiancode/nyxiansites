@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Centered with Dropdown</title>
+    <title>Video Centered with Futuristic Dropdown</title>
+    <!-- Link to FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             background-color: black;
@@ -13,6 +15,8 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
         }
         .video-container {
             position: relative;
@@ -42,33 +46,45 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: white;
+            background-color: #222;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.9);
             z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
         }
         .dropdown-content a {
-            color: black;
+            color: white;
             padding: 12px 16px;
             text-decoration: none;
-            display: block;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
         }
         .dropdown-content a:hover {
-            background-color: #ddd;
+            background-color: #575757;
         }
         .dropdown:hover .dropdown-content {
             display: block;
         }
         .dropdown:hover .dropbtn {
-            background-color: #3e8e41;
+            background-color: #444;
         }
         .dropbtn {
-            background-color: #4CAF50;
+            background-color: #333;
             color: white;
             padding: 16px;
             font-size: 16px;
             border: none;
             cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .dropbtn i {
+            margin-right: 8px;
+        }
+        .dropdown-content a i {
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -77,10 +93,10 @@
         <video src="https://nyxiannetwork.web.id/vid/logo.mp4" autoplay muted loop></video>
     </div>
     <div class="dropdown">
-        <button class="dropbtn">Komunitas</button>
+        <button class="dropbtn"><i class="fas fa-users"></i>Komunitas</button>
         <div class="dropdown-content">
-            <a href="https://t.me/NyxianSactuary" target="_blank">Grup</a>
-            <a href="https://t.me/NyxianNetwork" target="_blank">Channel</a>
+            <a href="https://t.me/NyxianSactuary" target="_blank"><i class="fas fa-users"></i>Grup</a>
+            <a href="https://t.me/NyxianNetwork" target="_blank"><i class="fas fa-bullhorn"></i>Channel</a>
         </div>
     </div>
 </body>
