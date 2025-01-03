@@ -123,6 +123,13 @@
         .popup-content a:hover {
             background-color: #0056b3;
         }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -140,6 +147,11 @@
             <a href="https://t.me/NyxianNetwork" target="_blank"><i class="fas fa-bullhorn"></i> Channel</a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> NyxianNetwork. All rights reserved.</p>
+    </footer>
 
     <script>
         // Get the popup
@@ -167,6 +179,9 @@
                 popup.style.display = "none";
             }
         }
+
+        // Set the current year in the footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
