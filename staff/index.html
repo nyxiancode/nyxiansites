@@ -6,7 +6,6 @@
   <title>Carousel team</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,800,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="./style.css">
   <style>
     * {
       margin: 0;
@@ -48,7 +47,7 @@
       opacity: 0;
       transform: translate(-50%, -50%);
       width: 100%;
-      padding: 0 20px; /* Padding for better layout on mobile */
+      padding: 0 20px;
     }
 
     .slider--teams .slider--teams__team {
@@ -68,8 +67,8 @@
       display: inline-block;
       float: left;
       text-align: center;
-      width: 33.3333%; /* Default for 3 items visible */
-      padding: 10px; /* Adds space between items */
+      width: 33.3333%;
+      padding: 10px;
     }
 
     #list li figure {
@@ -103,15 +102,14 @@
     }
 
     #list li figure > div > div {
-      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/953/teams.jpg) no-repeat;
       background-size: cover;
-      background-position: 0px 0px;
+      background-position: center;
       position: absolute;
       top: 50%;
       left: 50%;
       width: 170px;
       height: 170px;
-      transform: rotate(-45deg) translate(0%, -70%);
+      transform: rotate(-45deg) translate(-50%, -50%);
     }
 
     #list li figure figcaption h2 {
@@ -145,8 +143,6 @@
       *zoom: 1;
     }
 
-    /* Media Queries for responsiveness */
-
     @media (max-width: 768px) {
       .slider--teams {
         max-width: 100%;
@@ -158,7 +154,7 @@
       }
 
       #list li {
-        width: 100%; /* Show one item at a time on smaller screens */
+        width: 100%;
         padding: 10px;
       }
 
@@ -190,11 +186,9 @@
         font-size: 0.7rem;
       }
     }
-
   </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
 <div class="slider--teams">
   <div class="slider--teams__team">
     <ul id="list" class="cf">
@@ -225,11 +219,11 @@
       <li>
         <figure>
           <div>
-            <div></div>
+            <div style="background-image: url('img/IMG_20250120_221327_423.jpg');"></div>
           </div>
           <figcaption>
-            <h2>Wendy</h2>
-            <p>Designer</p>
+            <h2>Meng</h2>
+            <p>Nyxian Beta</p>
           </figcaption>
         </figure>
       </li>
@@ -272,13 +266,11 @@
     </ul>
   </div>
 </div>
-<!-- partial -->
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js'></script>
 <script>
   var sliderTeam = (function(document, $) {
     'use strict';
-    
     var $sliderTeams = $('.slider--teams'),
         $list = $('#list'),
         $listItems = $('#list li'),
@@ -314,7 +306,6 @@
                   window.setTimeout(callback, 1000 / 60);
                 };
           })();
-  
           window.requestInterval = function(fn, delay) {
               if( !window.requestAnimationFrame       && 
                   !window.webkitRequestAnimationFrame && 
@@ -324,7 +315,6 @@
                       return window.setInterval(fn, delay);
               var start = new Date().getTime(),
               handle = new Object();
-  
               function loop() {
                   var current = new Date().getTime(),
                   delta = current - start;
@@ -337,7 +327,6 @@
               handle.value = requestAnimFrame(loop);
               return handle;
           }
-
           window.clearRequestInterval = function(handle) {
               window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
               window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value)   :
@@ -346,7 +335,6 @@
               window.msCancelRequestAnimationFrame ? msCancelRequestAnimationFrame(handle.value) :
               clearInterval(handle);
           };
-          
           $.each($listItems, function(i) {
             var $this = $(this);
             $this.on('touchstart click', function(e) {
@@ -355,16 +343,13 @@
               _moveIt($this, i);
             });
           });
-          
           autoSlider = requestInterval(_autoMove, $acAuto);
         },
         
         _moveIt = function(obj, x) {
           var n = x;
-          
           obj.find('figure').addClass('active');        
           $listItems.not(obj).find('figure').removeClass('active');
-          
           $list.velocity({
             translateX: ~~((-(100 / $nItems)) * n) + '%',
             translateZ: 0
@@ -389,7 +374,6 @@
           $isAuto = false;
           _autoMove(x);
         };
-    
     return {
       init: _init
     };
