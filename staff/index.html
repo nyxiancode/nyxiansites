@@ -4,14 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nyxian Staff</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,800,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="./style.css">
   <style>
-    /* Import custom font */
     @font-face {
-      font-family: "Game Of Squids";
-      src: url("fonts/Squids.ttf") format("truetype");
+      font-family: 'Squids';
+      src: url('font/Squids.ttf') format('truetype');
     }
 
     * {
@@ -40,17 +39,19 @@
     body {
       font-family: "Open Sans", sans-serif;
       font-size: 100%;
-      background-color: #000; /* Background hitam */
-      color: #fff; /* Tulisan putih */
+      background-color: black;
+      color: white;
     }
 
-    /* Tambahkan gaya untuk judul Nyxian Staff */
-    .title {
-      font-family: "Game Of Squids", sans-serif;
-      font-size: 3rem;
+    header {
       text-align: center;
       margin: 20px 0;
-      color: #fff; /* Warna putih */
+    }
+
+    header h1 {
+      font-family: 'Squids', sans-serif;
+      font-size: 3rem;
+      color: white;
     }
 
     ul li {
@@ -65,7 +66,7 @@
       opacity: 0;
       transform: translate(-50%, -50%);
       width: 100%;
-      padding: 0 20px;
+      padding: 0 20px; /* Padding for better layout on mobile */
     }
 
     .slider--teams .slider--teams__team {
@@ -85,8 +86,8 @@
       display: inline-block;
       float: left;
       text-align: center;
-      width: 33.3333%;
-      padding: 10px;
+      width: 33.3333%; /* Default for 3 items visible */
+      padding: 10px; /* Adds space between items */
     }
 
     #list li figure {
@@ -132,13 +133,13 @@
     }
 
     #list li figure figcaption h2 {
-      color: #fff; /* Tulisan nama berwarna putih */
+      color: white;
       font-size: 1.6rem;
       font-weight: 800;
     }
 
     #list li figure figcaption p {
-      color: #ccc;
+      color: white;
       font-size: 0.9rem;
       font-weight: 400;
     }
@@ -162,6 +163,8 @@
       *zoom: 1;
     }
 
+    /* Media Queries for responsiveness */
+
     @media (max-width: 768px) {
       .slider--teams {
         max-width: 100%;
@@ -173,7 +176,7 @@
       }
 
       #list li {
-        width: 100%;
+        width: 100%; /* Show one item at a time on smaller screens */
         padding: 10px;
       }
 
@@ -205,192 +208,195 @@
         font-size: 0.7rem;
       }
     }
+
   </style>
 </head>
 <body>
-  <!-- Tambahkan elemen judul -->
-  <div class="title">Nyxian Staff</div>
-
-  <div class="slider--teams">
-    <div class="slider--teams__team">
-      <ul id="list" class="cf">
-        <li>
-          <figure class="active">
-            <div>
-              <div style="background-image: url('img/katsu.jpg');"></div>
-            </div>
-            <figcaption>
-              <h2>Katsu</h2>
-              <p>Nyxian Alpha</p>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <div>
-              <div style="background-image: url('img/IMG_20250120_212000_631.jpg');"></div>
-            </div>
-            <figcaption>
-              <h2>Buzz</h2>
-              <p>Nyxian Luna</p>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <div>
-              <div style="background-image: url('img/IMG_20250120_221327_423.jpg');"></div>
-            </div>
-            <figcaption>
-              <h2>Meng</h2>
-              <p>Nyxian Beta</p>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <div>
-              <div></div>
-            </div>
-            <figcaption>
-              <h2>Bill</h2>
-              <p>Development</p>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <div>
-              <div></div>
-            </div>
-            <figcaption>
-              <h2>Lorraine</h2>
-              <p>Front-End Development</p>
-            </figcaption>
-          </figure>
-        </li>
-      </ul>
-    </div>
+<header>
+  <h1>Nyxian Staff</h1>
+</header>
+<div class="slider--teams">
+  <div class="slider--teams__team">
+    <ul id="list" class="cf">
+      <li>
+        <figure class="active">
+          <div>
+            <div style="background-image: url('img/katsu.jpg');"></div>
+          </div>
+          <figcaption>
+            <h2>Katsu</h2>
+            <p>Nyxian Alpha</p>
+          </figcaption>
+        </figure>
+      </li>
+      
+      <li>
+        <figure>
+          <div>
+            <div style="background-image: url('img/IMG_20250120_212000_631.jpg');"></div>
+          </div>
+          <figcaption>
+            <h2>Buzz</h2>
+            <p>Nyxian Luna</p>
+          </figcaption>
+        </figure>
+      </li>
+      
+      <li>
+        <figure>
+          <div>
+            <div style="background-image: url('img/IMG_20250120_221327_423.jpg');"></div>
+          </div>
+          <figcaption>
+            <h2>Meng</h2>
+            <p>Nyxian Beta</p>
+          </figcaption>
+        </figure>
+      </li>
+      
+      <li>
+        <figure>
+          <div>
+            <div></div>
+          </div>
+          <figcaption>
+            <h2>Bill</h2>
+            <p>Development</p>
+          </figcaption>
+        </figure>
+      </li>
+      
+      <li>
+        <figure>
+          <div>
+            <div></div> 
+          </div>
+          <figcaption>
+            <h2>Lorraine</h2>
+            <p>Front-End Development</p>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
   </div>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
-  <script>
-    // Slider script (tidak berubah)
-    var sliderTeam = (function(document, $) {
-      'use strict';
-      var $sliderTeams = $('.slider--teams'),
-          $list = $('#list'),
-          $listItems = $('#list li'),
-          $nItems = $listItems.length,
-          $nView = 3,
-          autoSlider,
-          $current = 0,
-          $isAuto = true,
-          $acAuto = 2500,
-
-          _init = function() {
-            _initWidth();
-            _eventInit();
-          },
-
-          _initWidth = function() {
-            $list.css({
-              'margin-left': ~~(100 / $nView) + '%',
-              'width': ~~(100 * ($nItems / $nView)) + '%'
-            });
-            $listItems.css('width', 100 / $nItems + '%');
-            $sliderTeams.velocity({ opacity: 1 }, { display: "block" }, { delay: 1000 });
-          },
-
-          _eventInit = function() {
-            window.requestAnimFrame = (function() {
-              return window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                window.oRequestAnimationFrame ||
-                window.msRequestAnimationFrame ||
-                function(callback, element) {
+</div>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js'></script>
+<script>
+  var sliderTeam = (function(document, $) {
+    'use strict';
+    var $sliderTeams = $('.slider--teams'),
+        $list = $('#list'),
+        $listItems = $('#list li'),
+        $nItems = $listItems.length,
+        $nView = 3,
+        autoSlider,
+        $current = 0,
+        $isAuto = true,
+        $acAuto = 2500,
+        
+        _init = function() {
+          _initWidth();
+          _eventInit();
+        },
+        
+        _initWidth = function() {
+          $list.css({
+            'margin-left': ~~(100 / $nView) + '%',
+            'width': ~~(100 * ($nItems / $nView)) + '%'
+          });
+          $listItems.css('width', 100 / $nItems + '%');
+          $sliderTeams.velocity({ opacity: 1 }, { display: "block" }, { delay:1000 });
+        },
+        
+        _eventInit = function() {
+          window.requestAnimFrame = (function() {
+            return  window.requestAnimationFrame       || 
+                window.webkitRequestAnimationFrame || 
+                window.mozRequestAnimationFrame    || 
+                window.oRequestAnimationFrame      || 
+                window.msRequestAnimationFrame     || 
+                function(callback, element){
                   window.setTimeout(callback, 1000 / 60);
                 };
-            })();
-            window.requestInterval = function(fn, delay) {
-              if (!window.requestAnimationFrame &&
-                !window.webkitRequestAnimationFrame &&
-                !window.mozRequestAnimationFrame &&
-                !window.oRequestAnimationFrame &&
-                !window.msRequestAnimationFrame)
-                return window.setInterval(fn, delay);
+          })();
+          window.requestInterval = function(fn, delay) {
+              if( !window.requestAnimationFrame       && 
+                  !window.webkitRequestAnimationFrame && 
+                  !window.mozRequestAnimationFrame    && 
+                  !window.oRequestAnimationFrame      && 
+                  !window.msRequestAnimationFrame)
+                      return window.setInterval(fn, delay);
               var start = new Date().getTime(),
-                handle = new Object();
-
+              handle = new Object();
               function loop() {
-                var current = new Date().getTime(),
+                  var current = new Date().getTime(),
                   delta = current - start;
-                if (delta >= delay) {
-                  fn.call();
-                  start = new Date().getTime();
-                }
-                handle.value = requestAnimFrame(loop);
+                  if(delta >= delay) {
+                      fn.call();
+                      start = new Date().getTime();
+                  }
+                  handle.value = requestAnimFrame(loop);
               };
               handle.value = requestAnimFrame(loop);
               return handle;
-            }
-            window.clearRequestInterval = function(handle) {
+          }
+          window.clearRequestInterval = function(handle) {
               window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
-                window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) :
-                window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
-                window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
-                window.msCancelRequestAnimationFrame ? msCancelRequestAnimationFrame(handle.value) :
-                clearInterval(handle);
-            };
-            $.each($listItems, function(i) {
-              var $this = $(this);
-              $this.on('touchstart click', function(e) {
-                e.preventDefault();
-                _stopMove(i);
-                _moveIt($this, i);
-              });
-            });
-            autoSlider = requestInterval(_autoMove, $acAuto);
-          },
-
-          _moveIt = function(obj, x) {
-            var n = x;
-            obj.find('figure').addClass('active');
-            $listItems.not(obj).find('figure').removeClass('active');
-            $list.velocity({
-              translateX: ~~((-(100 / $nItems)) * n) + '%',
-              translateZ: 0
-            }, {
-              duration: 1000,
-              easing: [400, 26],
-              queue: false
-            });
-          },
-
-          _autoMove = function(currentSlide) {
-            if ($isAuto) {
-              $current = ~~(($current + 1) % $nItems);
-            } else {
-              $current = currentSlide;
-            }
-            _moveIt($listItems.eq($current), $current);
-          },
-
-          _stopMove = function(x) {
-            clearRequestInterval(autoSlider);
-            $isAuto = false;
-            _autoMove(x);
+              window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value)   :
+              window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+              window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
+              window.msCancelRequestAnimationFrame ? msCancelRequestAnimationFrame(handle.value) :
+              clearInterval(handle);
           };
-      return {
-        init: _init
-      };
-    })(document, jQuery);
-
-    $(window).load(function() {
-      'use strict';
-      sliderTeam.init();
-    });
-  </script>
+          $.each($listItems, function(i) {
+            var $this = $(this);
+            $this.on('touchstart click', function(e) {
+              e.preventDefault();
+              _stopMove(i);
+              _moveIt($this, i);
+            });
+          });
+          autoSlider = requestInterval(_autoMove, $acAuto);
+        },
+        
+        _moveIt = function(obj, x) {
+          var n = x;
+          obj.find('figure').addClass('active');        
+          $listItems.not(obj).find('figure').removeClass('active');
+          $list.velocity({
+            translateX: ~~((-(100 / $nItems)) * n) + '%',
+            translateZ: 0
+          }, {
+            duration: 1000,
+            easing: [400, 26],
+            queue: false
+          });
+        },
+        
+        _autoMove = function(currentSlide) {
+          if ($isAuto) { 
+            $current = ~~(($current + 1) % $nItems);
+          } else {
+            $current = currentSlide;
+          }
+          _moveIt($listItems.eq($current), $current);
+        },
+        
+        _stopMove = function(x) {
+          clearRequestInterval(autoSlider);
+          $isAuto = false;
+          _autoMove(x);
+        };
+    return {
+      init: _init
+    };
+  })(document, jQuery);
+  
+  $(window).load(function(){
+    'use strict';
+    sliderTeam.init();
+  });
+</script>
 </body>
 </html>
