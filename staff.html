@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Organisasi</title>
+    <title>Staff Organisasi Nyxian</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -34,67 +34,69 @@
         .container {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            margin-top: 40px;
-            margin-bottom: 40px;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
         }
 
-        .org-chart {
-            position: relative;
+        .role-container {
             display: flex;
+            justify-content: space-between;
+            width: 100%;
             flex-direction: column;
             align-items: center;
-            width: 100%;
         }
 
-        .node {
+        .role {
             background-color: #1e1e1e;
             border-radius: 8px;
-            padding: 15px;
+            padding: 20px;
             width: 200px;
-            margin: 20px;
             text-align: center;
-            position: relative;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .node:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
+        .role:hover {
+            transform: scale(1.05);
         }
 
-        .node i {
+        .role i {
             font-size: 3rem;
             color: #007bff;
             margin-bottom: 10px;
             transition: color 0.3s ease;
         }
 
-        .node:hover i {
+        .role:hover i {
             color: #f0f0f0;
         }
 
-        .node p {
-            font-size: 1.2rem;
-            color: #f0f0f0;
-            margin: 10px 0;
+        .role h3 {
+            font-size: 1.5rem;
             font-weight: 600;
+            color: #f0f0f0;
         }
 
-        .names {
+        .staff-list {
             display: none;
-            background-color: #333;
-            padding: 10px;
-            border-radius: 8px;
-            margin-top: 10px;
+            margin-top: 15px;
+            color: #bbb;
+            font-size: 1rem;
+            text-align: left;
+            transition: all 0.5s ease-in-out;
         }
 
-        .names p {
-            font-size: 1rem;
-            color: #bbb;
-            margin-bottom: 5px;
+        .staff-list.visible {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .staff-list p {
+            margin: 5px 0;
         }
 
         .divider {
@@ -102,15 +104,6 @@
             height: 2px;
             background-color: #007bff;
             margin: 30px 0;
-        }
-
-        .line {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 2px;
-            background-color: #007bff;
-            z-index: 0;
         }
 
         footer {
@@ -134,6 +127,16 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -144,37 +147,34 @@
 
 <div class="container">
 
-    <!-- Organizational Chart -->
-    <div class="org-chart">
+    <div class="role-container">
 
         <!-- Pendiri -->
-        <div class="node" id="pendiri">
-            <i class="fas fa-wolf-pack-battalion"></i> <!-- Wolf icon -->
-            <p>Pendiri</p>
-            <div class="names" id="pendiriNames">
+        <div class="role" id="pendiri">
+            <i class="fas fa-crown"></i>
+            <h3>Pendiri</h3>
+            <div class="staff-list" id="pendiri-list">
                 <p>@KatsuID » Nyxian Alpha</p>
             </div>
         </div>
 
-        <div class="line" style="height: 50px; top: 50%;"></div>
-
         <!-- Wakil Pendiri -->
-        <div class="node" id="wakilPendiri">
-            <i class="fas fa-wolf-pack-battalion"></i> <!-- Wolf icon -->
-            <p>Wakil Pendiri</p>
-            <div class="names" id="wakilPendiriNames">
+        <div class="role" id="wakil-pendiri">
+            <i class="fas fa-users-cog"></i>
+            <h3>Wakil Pendiri</h3>
+            <div class="staff-list" id="wakil-pendiri-list">
                 <p>@Excllntbzz » Nyxian Luna (Pasangan Alpha)</p>
                 <p>@wupyiu » Nyxian Beta (Wakil Pendiri Wanita dalam struktur serigala)</p>
             </div>
         </div>
 
-        <div class="line" style="height: 100px; top: 60%;"></div>
+        <div class="divider"></div>
 
         <!-- Admin -->
-        <div class="node" id="admin">
-            <i class="fas fa-wolf-pack-battalion"></i> <!-- Wolf icon -->
-            <p>Admin</p>
-            <div class="names" id="adminNames">
+        <div class="role" id="admin">
+            <i class="fas fa-user-shield"></i>
+            <h3>Admin</h3>
+            <div class="staff-list" id="admin-list">
                 <p>@Khuzan » Nyxian Fang</p>
                 <p>@gbrielcakep » Nyxian Fang</p>
                 <p>@ryuujishi » Nyxian Fang</p>
@@ -190,51 +190,49 @@
             </div>
         </div>
 
-        <div class="line" style="height: 100px; top: 60%;"></div>
+        <div class="divider"></div>
 
-        <!-- Admin Trial (Nyxian Cub) -->
-        <div class="node" id="adminTrial">
-            <i class="fas fa-wolf-pack-battalion"></i> <!-- Wolf icon -->
-            <p>Admin Trial (Nyxian Cub)</p>
-            <div class="names" id="adminTrialNames">
+        <!-- Admin Trial -->
+        <div class="role" id="admin-trial">
+            <i class="fas fa-paw"></i>
+            <h3>Admin Trial (Nyxian Cub)</h3>
+            <div class="staff-list" id="admin-trial-list">
                 <p>@Analisacantik » Nyxian Cub</p>
                 <p>@jjesssfy » Nyxian Cub</p>
                 <p>@vreinavaria » Nyxian Cub</p>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="divider"></div>
+    </div>
+
+</div>
 
 <footer>
     <p>&copy; <span id="currentYear"></span> NyxianNetwork. All rights reserved. | <a href="https://nyxian.network" target="_blank">Visit Our Site</a></p>
 </footer>
 
 <script>
-    // Set the current year in the footer
     document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    // Toggle visibility of names when the node is clicked
-    document.getElementById("pendiri").addEventListener("click", function() {
-        var names = document.getElementById("pendiriNames");
-        names.style.display = names.style.display === "block" ? "none" : "block";
-    });
+    document.getElementById("pendiri").onclick = function() {
+        var list = document.getElementById("pendiri-list");
+        list.classList.toggle("visible");
+    }
 
-    document.getElementById("wakilPendiri").addEventListener("click", function() {
-        var names = document.getElementById("wakilPendiriNames");
-        names.style.display = names.style.display === "block" ? "none" : "block";
-    });
+    document.getElementById("wakil-pendiri").onclick = function() {
+        var list = document.getElementById("wakil-pendiri-list");
+        list.classList.toggle("visible");
+    }
 
-    document.getElementById("admin").addEventListener("click", function() {
-        var names = document.getElementById("adminNames");
-        names.style.display = names.style.display === "block" ? "none" : "block";
-    });
+    document.getElementById("admin").onclick = function() {
+        var list = document.getElementById("admin-list");
+        list.classList.toggle("visible");
+    }
 
-    document.getElementById("adminTrial").addEventListener("click", function() {
-        var names = document.getElementById("adminTrialNames");
-        names.style.display = names.style.display === "block" ? "none" : "block";
-    });
+    document.getElementById("admin-trial").onclick = function() {
+        var list = document.getElementById("admin-trial-list");
+        list.classList.toggle("visible");
+    }
 </script>
 
 </body>
