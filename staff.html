@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struktur Organisasi</title>
+    <title>Struktur Organisasi Nyxian</title>
     <!-- Link to FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -18,30 +18,53 @@
         h1 {
             margin-top: 20px;
         }
-        .role {
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .level {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .level:after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background-color: #007BFF;
+            transform: translateX(-50%);
+        }
+        .position {
             background-color: #444;
+            padding: 10px 20px;
+            margin: 10px;
             border-radius: 8px;
-            padding: 20px;
-            margin: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .role h2 {
-            color: #007BFF;
-            margin-bottom: 10px;
+        .position:before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            width: 2px;
+            height: 15px;
+            background-color: #007BFF;
+            transform: translateX(-50%);
         }
-        .role .staff-list {
-            text-align: left;
-            margin-left: 20px;
-        }
-        .role .staff-list li {
-            list-style-type: none;
-            margin-bottom: 8px;
-        }
-        .role .staff-list a {
+        .position a {
             color: #FFD700;
             text-decoration: none;
         }
-        .role .staff-list a:hover {
+        .position a:hover {
             text-decoration: underline;
         }
         footer {
@@ -57,50 +80,70 @@
 
     <h1>Struktur Organisasi Nyxian</h1>
 
-    <!-- Pendiri Section -->
-    <div class="role">
-        <h2>👑 Pendiri</h2>
-        <ul class="staff-list">
-            <li><a href="https://t.me/KatsuID" target="_blank">@KatsuID</a> » Nyxian Alpha</li>
-        </ul>
-    </div>
+    <!-- Organisasi Chart -->
+    <div class="org-chart">
 
-    <!-- Wakil Pendiri Section -->
-    <div class="role">
-        <h2>⚜️ Wakil Pendiri</h2>
-        <ul class="staff-list">
-            <li><a href="https://t.me/Excllntbzz" target="_blank">@Excllntbzz</a> » Nyxian Luna (Pasangan Alpha)</li>
-            <li><a href="https://t.me/wupyiu" target="_blank">@wupyiu</a> » Nyxian Beta (Wakil Pendiri Wanita dalam struktur serigala)</li>
-        </ul>
-    </div>
+        <!-- Level 1: Pendiri -->
+        <div class="level">
+            <div class="position">
+                <a href="https://t.me/KatsuID" target="_blank">@KatsuID</a>
+                <span>Nyxian Alpha</span>
+                <div>👑 Pendiri</div>
+            </div>
+        </div>
 
-    <!-- Admin Section -->
-    <div class="role">
-        <h2>👮🏼 Admin</h2>
-        <ul class="staff-list">
-            <li><a href="https://t.me/Khuzan" target="_blank">@Khuzan</a> » Nyxian Fang</li>
-            <li><a href="https://t.me/gbrielcakep" target="_blank">@gbrielcakep</a> » Nyxian Fang</li>
-            <li><a href="https://t.me/ryuujishi" target="_blank">@ryuujishi</a> » Nyxian Fang</li>
-            <li><a href="https://t.me/julianromisasilalahi" target="_blank">@julianromisasilalahi</a> » Nyxian Howl</li>
-            <li><a href="https://t.me/liooooraa" target="_blank">@liooooraa</a> » Nyxian Howl</li>
-            <li><a href="https://t.me/nay" target="_blank">@nay</a> » Nyxian Howl</li>
-            <li><a href="https://t.me/iCewetengil" target="_blank">@iCewetengil</a> » Nyxian Howl</li>
-            <li><a href="https://t.me/Lynexox" target="_blank">@Lynexox</a> » Nyxian Howl</li>
-            <li><a href="https://t.me/babayyyu" target="_blank">@babayyyu</a> » Nyxian Howl</li>
-            <li><a href="https://t.me/babyimhereforyou" target="_blank">@babyimhereforyou</a> » Nyxian Howl</li>
-            <li><a href="https://t.me/nyxxynkeyziaa" target="_blank">@nyxxynkeyziaa</a> » Nyxian Howl</li>
-            <li><a href="https://t.me/idioute" target="_blank">@idioute</a> » Nyxian Howl</li>
-        </ul>
-    </div>
+        <!-- Level 2: Wakil Pendiri -->
+        <div class="level">
+            <div class="position">
+                <a href="https://t.me/Excllntbzz" target="_blank">@Excllntbzz</a>
+                <span>Nyxian Luna (Pasangan Alpha)</span>
+                <div>⚜️ Wakil Pendiri</div>
+            </div>
+            <div class="position">
+                <a href="https://t.me/wupyiu" target="_blank">@wupyiu</a>
+                <span>Nyxian Beta (Wakil Pendiri Wanita dalam struktur serigala)</span>
+                <div>⚜️ Wakil Pendiri</div>
+            </div>
+        </div>
 
-    <!-- Admin Trial (Nyxian Cub) Section -->
-    <div class="role">
-        <h2>🦊 Admin Trial (Nyxian Cub)</h2>
-        <ul class="staff-list">
-            <li><a href="https://t.me/Analisacantik" target="_blank">@Analisacantik</a> » Nyxian Cub</li>
-            <li><a href="https://t.me/jjesssfy" target="_blank">@jjesssfy</a> » Nyxian Cub</li>
-            <li><a href="https://t.me/vreinavaria" target="_blank">@vreinavaria</a> » Nyxian Cub</li>
-        </ul>
+        <!-- Level 3: Admin -->
+        <div class="level">
+            <div class="position">
+                <a href="https://t.me/Khuzan" target="_blank">@Khuzan</a>
+                <span>Nyxian Fang</span>
+                <div>👮🏼 Admin</div>
+            </div>
+            <div class="position">
+                <a href="https://t.me/gbrielcakep" target="_blank">@gbrielcakep</a>
+                <span>Nyxian Fang</span>
+                <div>👮🏼 Admin</div>
+            </div>
+            <div class="position">
+                <a href="https://t.me/ryuujishi" target="_blank">@ryuujishi</a>
+                <span>Nyxian Fang</span>
+                <div>👮🏼 Admin</div>
+            </div>
+        </div>
+
+        <!-- Level 4: Admin Trial (Nyxian Cub) -->
+        <div class="level">
+            <div class="position">
+                <a href="https://t.me/Analisacantik" target="_blank">@Analisacantik</a>
+                <span>Nyxian Cub</span>
+                <div>🦊 Admin Trial</div>
+            </div>
+            <div class="position">
+                <a href="https://t.me/jjesssfy" target="_blank">@jjesssfy</a>
+                <span>Nyxian Cub</span>
+                <div>🦊 Admin Trial</div>
+            </div>
+            <div class="position">
+                <a href="https://t.me/vreinavaria" target="_blank">@vreinavaria</a>
+                <span>Nyxian Cub</span>
+                <div>🦊 Admin Trial</div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->
