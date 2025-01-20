@@ -45,6 +45,7 @@
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
+            margin-bottom: 10px; /* Reduced margin to bring buttons closer */
         }
         .dropbtn i {
             margin-right: 8px;
@@ -84,11 +85,11 @@
         }
         .popup-content {
             background-color: #333;
-            margin: 15% auto;
-            padding: 20px;
+            margin: 25% auto; /* Adjusted for lower positioning */
+            padding: 15px; /* Reduced padding */
             border: 1px solid #888;
-            width: 80%;
-            max-width: 400px;
+            width: 70%; /* Reduced width */
+            max-width: 350px; /* Reduced max-width */
             border-radius: 8px;
             position: relative;
             text-align: center;
@@ -134,9 +135,12 @@
 </head>
 <body>
     <div class="video-container">
-        <video src="https://nyxiannetwork.web.id/vid/logo.mp4" autoplay muted loop></video>
+        <video src="https://nyxian.thsite.top/1735860081323.mp4" autoplay muted loop></video>
     </div>
     <button class="dropbtn"><i class="fas fa-server"></i>Komunitas</button>
+    
+    <!-- Staff Organisasi Button -->
+    <button class="dropbtn" id="staffButton"><i class="fas fa-users"></i> Staff Organisasi</button>
 
     <!-- The Popup -->
     <div id="popup" class="popup">
@@ -182,6 +186,27 @@
 
         // Set the current year in the footer
         document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // Staff Organisasi button with long click detection
+        var staffButton = document.getElementById("staffButton");
+
+        var clickTimer;
+        staffButton.addEventListener("mousedown", function() {
+            clickTimer = setTimeout(function() {
+                staffButton.textContent = "#blocked";
+            }, 1000); // 1000ms or 1 second to detect long click
+        });
+
+        staffButton.addEventListener("mouseup", function() {
+            clearTimeout(clickTimer);
+            if (staffButton.textContent !== "#blocked") {
+                window.location.href = "staff.html"; // Redirects to staff.html if click is not long
+            }
+        });
+
+        staffButton.addEventListener("mouseout", function() {
+            clearTimeout(clickTimer); // Prevents the blocked text if the mouse leaves the button
+        });
     </script>
 </body>
 </html>
