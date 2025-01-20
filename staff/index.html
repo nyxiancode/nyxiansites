@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carousel team</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,800,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -46,7 +47,10 @@
       max-width: 750px;
       opacity: 0;
       transform: translate(-50%, -50%);
+      width: 100%;
+      padding: 0 20px; /* Padding for better layout on mobile */
     }
+
     .slider--teams .slider--teams__team {
       position: relative;
       overflow: hidden;
@@ -58,12 +62,16 @@
       backface-visibility: hidden;
       transform: translate3d(0, 0, 0);
     }
+
     #list li {
       position: relative;
       display: inline-block;
       float: left;
       text-align: center;
+      width: 33.3333%; /* Default for 3 items visible */
+      padding: 10px; /* Adds space between items */
     }
+
     #list li figure {
       cursor: pointer;
       margin: 1em;
@@ -73,14 +81,17 @@
       transition: transform 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 450ms ease-in-out;
       transform: scale(0.5) translateZ(0px);
     }
+
     #list li figure:hover {
       opacity: 0.8;
       transform: scale(0.6) translateZ(0px);
     }
+
     #list li figure:active {
       opacity: 1;
       transform: scale(0.7) translateZ(0px);
     }
+
     #list li figure > div {
       border-radius: 5px;
       position: relative;
@@ -90,6 +101,7 @@
       overflow: hidden;
       transform: rotate(45deg) translateZ(0px);
     }
+
     #list li figure > div > div {
       background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/953/teams.jpg) no-repeat;
       background-size: cover;
@@ -101,33 +113,17 @@
       height: 170px;
       transform: rotate(-45deg) translate(0%, -70%);
     }
+
     #list li figure figcaption h2 {
       color: #333;
       font-size: 1.6rem;
       font-weight: 800;
     }
+
     #list li figure figcaption p {
       color: #666;
       font-size: 0.9rem;
       font-weight: 400;
-    }
-    #list li:nth-child(1) figure > div > div {
-      background-position: 0px 0px !important;
-    }
-    #list li:nth-child(2) figure > div > div {
-      background-position: 0px 20% !important;
-    }
-    #list li:nth-child(3) figure > div > div {
-      background-position: 0px 40% !important;
-    }
-    #list li:nth-child(4) figure > div > div {
-      background-position: 0px 60% !important;
-    }
-    #list li:nth-child(5) figure > div > div {
-      background-position: 0px 80% !important;
-    }
-    #list li:nth-child(6) figure > div > div {
-      background-position: 0px 100% !important;
     }
 
     .active {
@@ -148,15 +144,57 @@
     .cf {
       *zoom: 1;
     }
+
+    /* Media Queries for responsiveness */
+
+    @media (max-width: 768px) {
+      .slider--teams {
+        max-width: 100%;
+      }
+
+      #list {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      #list li {
+        width: 100%; /* Show one item at a time on smaller screens */
+        padding: 10px;
+      }
+
+      #list li figure > div {
+        width: 100px;
+        height: 100px;
+      }
+
+      #list li figure figcaption h2 {
+        font-size: 1.2rem;
+      }
+
+      #list li figure figcaption p {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #list li figure > div {
+        width: 80px;
+        height: 80px;
+      }
+
+      #list li figure figcaption h2 {
+        font-size: 1rem;
+      }
+
+      #list li figure figcaption p {
+        font-size: 0.7rem;
+      }
+    }
+
   </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<!-- 
-autor: Marco Barría 
-https://twitter.com/marco_bf
--->
-
 <div class="slider--teams">
   <div class="slider--teams__team">
     <ul id="list" class="cf">
@@ -231,7 +269,6 @@ https://twitter.com/marco_bf
           </figcaption>
         </figure>
       </li>
-      
     </ul>
   </div>
 </div>
@@ -267,7 +304,6 @@ https://twitter.com/marco_bf
         },
         
         _eventInit = function() {
-          
           window.requestAnimFrame = (function() {
             return  window.requestAnimationFrame       || 
                 window.webkitRequestAnimationFrame || 
@@ -301,7 +337,7 @@ https://twitter.com/marco_bf
               handle.value = requestAnimFrame(loop);
               return handle;
           }
-  
+
           window.clearRequestInterval = function(handle) {
               window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
               window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value)   :
@@ -345,7 +381,6 @@ https://twitter.com/marco_bf
           } else {
             $current = currentSlide;
           }
-          console.log($current);
           _moveIt($listItems.eq($current), $current);
         },
         
@@ -358,7 +393,6 @@ https://twitter.com/marco_bf
     return {
       init: _init
     };
-  
   })(document, jQuery);
   
   $(window).load(function(){
@@ -366,6 +400,5 @@ https://twitter.com/marco_bf
     sliderTeam.init();
   });
 </script>
-
 </body>
 </html>
