@@ -7,84 +7,109 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: #121212;
+            background-color: #0f0f0f;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #333;
+            background-color: #212121;
             text-align: center;
-            padding: 20px 0;
+            padding: 30px 0;
+            border-bottom: 2px solid #007bff;
         }
 
         header h1 {
-            color: white;
             font-size: 2.5rem;
+            font-weight: 600;
+            color: #f0f0f0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0;
         }
 
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
             padding: 20px;
+            justify-items: center;
         }
 
         .card {
-            background-color: #222;
-            border: 1px solid #444;
+            background-color: #1e1e1e;
             border-radius: 10px;
-            width: 250px;
-            margin: 10px;
-            padding: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
         }
 
         .card i {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover i {
+            color: #f0f0f0;
         }
 
         .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #f0f0f0;
+            margin-bottom: 10px;
         }
 
         .card p {
             font-size: 1rem;
-            color: #aaa;
-        }
-
-        footer {
-            background-color: #333;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            color: white;
-        }
-
-        .staff-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .role {
-            font-size: 1.1rem;
-            margin-top: 5px;
-            color: #007BFF;
+            color: #bbb;
+            margin-bottom: 5px;
         }
 
         .divider {
             width: 100%;
             height: 2px;
-            background-color: #007BFF;
-            margin: 20px 0;
+            background-color: #007bff;
+            margin: 30px 0;
         }
+
+        footer {
+            background-color: #212121;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            color: #f0f0f0;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            border-top: 2px solid #007bff;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -104,7 +129,7 @@
 
     <!-- Wakil Pendiri Section -->
     <div class="card">
-        <i class="fas fa-cross"></i>
+        <i class="fas fa-users-cog"></i> <!-- Changed icon -->
         <h3>Wakil Pendiri</h3>
         <p>@Excllntbzz » Nyxian Luna (Pasangan Alpha)</p>
         <p>@wupyiu » Nyxian Beta (Wakil Pendiri Wanita dalam struktur serigala)</p>
@@ -143,7 +168,7 @@
 </div>
 
 <footer>
-    <p>&copy; <span id="currentYear"></span> NyxianNetwork. All rights reserved.</p>
+    <p>&copy; <span id="currentYear"></span> NyxianNetwork. All rights reserved. | <a href="https://nyxian.network" target="_blank">Visit Our Site</a></p>
 </footer>
 
 <script>
