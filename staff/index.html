@@ -6,7 +6,6 @@
   <title>Nyxian Staff</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,800,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="./style.css">
   <style>
     @font-face {
       font-family: 'Squids';
@@ -66,7 +65,7 @@
       opacity: 0;
       transform: translate(-50%, -50%);
       width: 100%;
-      padding: 0 20px; /* Padding for better layout on mobile */
+      padding: 0 20px;
     }
 
     .slider--teams .slider--teams__team {
@@ -77,7 +76,6 @@
     #list {
       position: relative;
       display: flex;
-      margin-left: 0;
       transition: transform 0.5s ease;
     }
 
@@ -85,8 +83,8 @@
       position: relative;
       display: inline-block;
       text-align: center;
-      width: 33.3333%; /* Default for 3 items visible */
-      padding: 10px; /* Adds space between items */
+      width: 33.3333%;
+      padding: 10px;
     }
 
     #list li figure {
@@ -109,7 +107,6 @@
 
     #list li figure > div {
       border-radius: 5px;
-      position: relative;
       margin: 2rem auto;
       width: 120px;
       height: 120px;
@@ -120,13 +117,12 @@
     #list li figure > div > div {
       background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/953/teams.jpg) no-repeat;
       background-size: cover;
-      background-position: 0px 0px;
       position: absolute;
       top: 50%;
       left: 50%;
       width: 170px;
       height: 170px;
-      transform: rotate(-45deg);
+      transform: rotate(-45deg) translate(-50%, -50%);
     }
 
     #list li figure figcaption h2 {
@@ -148,13 +144,8 @@
 
     /* Media Queries for responsiveness */
     @media (max-width: 768px) {
-      .slider--teams {
-        max-width: 100%;
-      }
-
       #list li {
-        width: 100%; /* Show one item at a time on smaller screens */
-        padding: 10px;
+        width: 100%;
       }
 
       #list li figure > div {
@@ -185,7 +176,6 @@
         font-size: 0.7rem;
       }
     }
-
   </style>
 </head>
 <body>
@@ -195,7 +185,7 @@
 <div class="slider--teams">
   <div class="slider--teams__team">
     <ul id="list" class="cf">
-      <!-- Duplicate last item for loop -->
+      <!-- Duplicate the last item at the beginning for looping -->
       <li>
         <figure>
           <div>
@@ -207,6 +197,7 @@
           </figcaption>
         </figure>
       </li>
+
       <li>
         <figure>
           <div>
@@ -218,7 +209,7 @@
           </figcaption>
         </figure>
       </li>
-      
+
       <li>
         <figure>
           <div>
@@ -230,32 +221,20 @@
           </figcaption>
         </figure>
       </li>
-      
+
       <li>
         <figure>
           <div>
-            <div></div>
+            <div style="background-image: url('img/IMG_20250120_221327_423.jpg');"></div>
           </div>
           <figcaption>
-            <h2>Bill</h2>
-            <p>Development</p>
+            <h2>Meng</h2>
+            <p>Nyxian Beta</p>
           </figcaption>
         </figure>
       </li>
-      
-      <li>
-        <figure>
-          <div>
-            <div></div>
-          </div>
-          <figcaption>
-            <h2>Lorraine</h2>
-            <p>Front-End Development</p>
-          </figcaption>
-        </figure>
-      </li>
-      
-      <!-- Duplicate first item for loop -->
+
+      <!-- Duplicate the first item at the end for looping -->
       <li>
         <figure>
           <div>
@@ -270,31 +249,34 @@
     </ul>
   </div>
 </div>
+
 <script>
-  const list = document.querySelector('#list');
-  const items = document.querySelectorAll('#list li');
-  const itemWidth = items[0].offsetWidth;
-  const totalItems = items.length;
+  const list = document.getElementById('list');
+  const items = list.children;
   let currentIndex = 1;
 
-  function moveSlider() {
-    list.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+  function moveSlider(index) {
+    list.style.transition = 'transform 0.5s ease';
+    list.style.transform = `translateX(-${index * 100 / items.length}%)`;
   }
 
-  list.addEventListener('transitionend', () => {
+  function handleTransitionEnd() {
     if (currentIndex === 0) {
-      currentIndex = totalItems - 2;
       list.style.transition = 'none';
-      moveSlider();
-    } else if (currentIndex === totalItems - 1) {
+      currentIndex = items.length - 2;
+      moveSlider(currentIndex);
+    } else if (currentIndex === items.length - 1) {
+      list.style.transition = 'none';
       currentIndex = 1;
-      list.style.transition = 'none';
-      moveSlider();
+      moveSlider(currentIndex);
     }
-  });
+  }
 
-  list.style.transition = 'transform 0.5s ease';
-  moveSlider();
+  list.addEventListener('transitionend', handleTransitionEnd);
+  setInterval(() => {
+    currentIndex++;
+    moveSlider(currentIndex);
+  }, 3000);
 </script>
 </body>
 </html>
