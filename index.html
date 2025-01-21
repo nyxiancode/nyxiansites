@@ -85,11 +85,8 @@
     <div class="video-container">
         <video src="1735860081323.mp4" autoplay muted loop></video>
     </div>
-    <!-- Komunitas Button -->
-    <a href="https://t.me/NyxianNetwork" target="_blank">
-        <button class="dropbtn"><i class="fas fa-server"></i>Komunitas</button>
-    </a>
-
+    <button class="dropbtn" id="communityButton"><i class="fas fa-server"></i>Komunitas</button>
+    
     <!-- Staff Organisasi Button -->
     <button class="dropbtn" id="staffButton"><i class="fas fa-users"></i> Staff Organisasi</button>
 
@@ -99,6 +96,20 @@
     </footer>
 
     <script>
+        // Direct link for "Komunitas" button
+        var communityButton = document.getElementById("communityButton");
+        communityButton.addEventListener("click", function(event) {
+            window.location.href = "https://t.me/NyxianNetwork";
+        });
+        communityButton.addEventListener("contextmenu", function(event) {
+            event.preventDefault(); // Disable right-click on the button
+        });
+
+        // Prevent long press on "Komunitas" button
+        communityButton.addEventListener("mousedown", function(event) {
+            event.preventDefault(); // Prevent long-press or touch-and-hold
+        });
+
         // Set the current year in the footer
         document.getElementById("currentYear").textContent = new Date().getFullYear();
 
