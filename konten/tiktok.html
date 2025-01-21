@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konten Tiktok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/pb19m8.jpg">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #00d1ff;
+            text-shadow: 0 0 10px #00d1ff, 0 0 20px #00d1ff;
+            text-align: center;
+        }
+        .content-list {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .content-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .content-list li {
+            font-size: 1.2em;
+            color: white;
+            margin: 10px 0;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .content-list li:hover {
+            transform: translateX(10px);
+            background-color: rgba(0, 209, 255, 0.2);
+        }
+        .content-list li i {
+            margin-right: 10px;
+            color: #00d1ff;
+        }
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Konten Tiktok</h1>
+    <div class="content-list">
+        <ul>
+            <li><i class="fas fa-caret-right"></i> Konten 1: Tips & Trik</li>
+            <li><i class="fas fa-caret-right"></i> Konten 2: Tutorial Singkat</li>
+            <li><i class="fas fa-caret-right"></i> Konten 3: Fun Challenge</li>
+            <li><i class="fas fa-caret-right"></i> Konten 4: Behind the Scenes</li>
+            <li><i class="fas fa-caret-right"></i> Konten 5: Kolaborasi Seru</li>
+            <li><i class="fas fa-caret-right"></i> Konten 6: Review Produk</li>
+            <li><i class="fas fa-caret-right"></i> Konten 7: Trend Terkini</li>
+        </ul>
+    </div>
+    <footer>&copy; <span id="currentYear"></span> NyxianNetwork. All rights reserved.</footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
