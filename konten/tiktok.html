@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/pb19m8.jpg">
     <style>
+        @font-face {
+            font-family: 'Squids';
+            src: url('https://nyxian.web.id/staff/font/Squids.ttf') format('truetype');
+        }
         body {
             background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
             color: white;
@@ -22,8 +26,9 @@
         h1 {
             margin-top: 20px;
             font-size: 2.5em;
-            color: #00d1ff;
-            text-shadow: 0 0 10px #00d1ff, 0 0 20px #00d1ff;
+            font-family: 'Squids', Arial, sans-serif;
+            color: #2196F3;
+            text-shadow: 0 0 10px #2196F3, 0 0 20px #2196F3;
             text-align: center;
         }
         .content-list {
@@ -57,6 +62,13 @@
             transform: translateX(10px);
             background-color: rgba(0, 209, 255, 0.2);
         }
+        .content-list li a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
         .content-list li i {
             margin-right: 10px;
             color: #00d1ff;
@@ -74,7 +86,13 @@
     <h1>Daftar Konten Tiktok</h1>
     <div class="content-list">
         <ul>
-            <li><i class="fas fa-caret-right"></i> Konten 1: Tips & Trik</li>
+            <li><a href="konten1.html"><i class="fas fa-caret-right"></i> Konten 1: Tips & Trik</a></li>
+            <li><a href="konten2.html"><i class="fas fa-caret-right"></i> Konten 2: Tutorial Singkat</a></li>
+            <li><a href="konten3.html"><i class="fas fa-caret-right"></i> Konten 3: Fun Challenge</a></li>
+            <li><a href="konten4.html"><i class="fas fa-caret-right"></i> Konten 4: Behind the Scenes</a></li>
+            <li><a href="konten5.html"><i class="fas fa-caret-right"></i> Konten 5: Kolaborasi Seru</a></li>
+            <li><a href="konten6.html"><i class="fas fa-caret-right"></i> Konten 6: Review Produk</a></li>
+            <li><a href="konten7.html"><i class="fas fa-caret-right"></i> Konten 7: Trend Terkini</a></li>
         </ul>
     </div>
     <footer>&copy; <span id="currentYear"></span> NyxianNetwork. All rights reserved.</footer>
