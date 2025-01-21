@@ -41,23 +41,16 @@
             background-color: #0056b3;
         }
 
-        .uploaded-image {
+        .uploaded-link {
             margin-top: 20px;
         }
 
-        .uploaded-image img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        .uploaded-image a {
-            display: block;
-            margin-top: 10px;
+        .uploaded-link a {
             color: #007bff;
             text-decoration: none;
         }
 
-        .uploaded-image a:hover {
+        .uploaded-link a:hover {
             text-decoration: underline;
         }
     </style>
@@ -67,7 +60,7 @@
     <div class="upload-container">
         <input type="file" id="fileInput" accept="image/*,audio/*,video/*">
         <button id="uploadButton">Upload</button>
-        <div class="uploaded-image" id="uploadedImage"></div>
+        <div class="uploaded-link" id="uploadedLink"></div>
     </div>
 
     <script>
@@ -99,12 +92,11 @@
                 const data = await response.json();
                 console.log('Upload berhasil:', data);
 
-                // Tampilkan gambar atau link hasil upload
-                const uploadedImage = document.getElementById('uploadedImage');
-                uploadedImage.innerHTML = `
+                // Tampilkan hanya URL hasil upload
+                const uploadedLink = document.getElementById('uploadedLink');
+                uploadedLink.innerHTML = `
                     <h3>File berhasil diupload!</h3>
-                    <img src="${data.secure_url}" alt="Uploaded File">
-                    <a href="${data.secure_url}" target="_blank">Lihat File</a>
+                    <a href="${data.secure_url}" target="_blank">${data.secure_url}</a>
                 `;
             } catch (error) {
                 console.error('Error:', error);
