@@ -85,10 +85,14 @@
     <div class="video-container">
         <video src="1735860081323.mp4" autoplay muted loop></video>
     </div>
+    <!-- Komunitas Button -->
     <button class="dropbtn" id="communityButton"><i class="fas fa-server"></i>Komunitas</button>
     
     <!-- Staff Organisasi Button -->
     <button class="dropbtn" id="staffButton"><i class="fas fa-users"></i> Staff Organisasi</button>
+
+    <!-- Konten Tiktok Button -->
+    <button class="dropbtn" id="tiktokButton"><i class="fab fa-tiktok"></i> Konten Tiktok</button>
 
     <!-- Footer -->
     <footer>
@@ -96,7 +100,7 @@
     </footer>
 
     <script>
-        // Direct link for "Komunitas" button
+        // Komunitas button functionality
         var communityButton = document.getElementById("communityButton");
         communityButton.addEventListener("click", function(event) {
             window.location.href = "https://t.me/NyxianNetwork";
@@ -104,16 +108,11 @@
         communityButton.addEventListener("contextmenu", function(event) {
             event.preventDefault(); // Disable right-click on the button
         });
-
-        // Prevent long press on "Komunitas" button
         communityButton.addEventListener("mousedown", function(event) {
             event.preventDefault(); // Prevent long-press or touch-and-hold
         });
 
-        // Set the current year in the footer
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-        // Staff Organisasi button with long click detection
+        // Staff Organisasi button functionality
         var staffButton = document.getElementById("staffButton");
 
         var clickTimer;
@@ -133,6 +132,21 @@
         staffButton.addEventListener("mouseout", function() {
             clearTimeout(clickTimer); // Prevents the blocked text if the mouse leaves the button
         });
+
+        // Konten Tiktok button functionality
+        var tiktokButton = document.getElementById("tiktokButton");
+        tiktokButton.addEventListener("click", function() {
+            window.location.href = "konten/tiktok.html";
+        });
+        tiktokButton.addEventListener("contextmenu", function(event) {
+            event.preventDefault(); // Disable right-click on the button
+        });
+        tiktokButton.addEventListener("mousedown", function(event) {
+            event.preventDefault(); // Prevent long-press or touch-and-hold
+        });
+
+        // Set the current year in the footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
