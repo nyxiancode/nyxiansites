@@ -54,6 +54,30 @@
       color: white;
     }
 
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: left;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
     ul li {
       list-style-type: none;
     }
@@ -66,7 +90,7 @@
       opacity: 0;
       transform: translate(-50%, -50%);
       width: 100%;
-      padding: 0 20px; /* Padding for better layout on mobile */
+      padding: 0 20px;
     }
 
     .slider--teams .slider--teams__team {
@@ -86,8 +110,8 @@
       display: inline-block;
       float: left;
       text-align: center;
-      width: 33.3333%; /* Default for 3 items visible */
-      padding: 10px; /* Adds space between items */
+      width: 33.3333%;
+      padding: 10px;
     }
 
     #list li figure {
@@ -162,59 +186,25 @@
     .cf {
       *zoom: 1;
     }
-
-    /* Media Queries for responsiveness */
-
-    @media (max-width: 768px) {
-      .slider--teams {
-        max-width: 100%;
-      }
-
-      #list {
-        margin-left: 0;
-        width: 100%;
-      }
-
-      #list li {
-        width: 100%; /* Show one item at a time on smaller screens */
-        padding: 10px;
-      }
-
-      #list li figure > div {
-        width: 100px;
-        height: 100px;
-      }
-
-      #list li figure figcaption h2 {
-        font-size: 1.2rem;
-      }
-
-      #list li figure figcaption p {
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #list li figure > div {
-        width: 80px;
-        height: 80px;
-      }
-
-      #list li figure figcaption h2 {
-        font-size: 1rem;
-      }
-
-      #list li figure figcaption p {
-        font-size: 0.7rem;
-      }
-    }
-
   </style>
 </head>
 <body>
 <header>
   <h1>Nyxian Staff</h1>
 </header>
+
+<div class="card">
+  <h2>Ringkasan Arti Julukan</h2>
+  <p>
+    <strong>Nyxian Alpha:</strong> Pemimpin utama yang memimpin komunitas.<br>
+    <strong>Nyxian Luna:</strong> Pasangan Alpha yang mendampingi dalam kepemimpinan.<br>
+    <strong>Nyxian Beta:</strong> Wakil pendiri wanita yang menjaga keseimbangan dan mendukung Alpha.<br>
+    <strong>Nyxian Fang:</strong> Admin pria yang melindungi dan menguatkan komunitas.<br>
+    <strong>Nyxian Howl:</strong> Admin wanita yang menjadi suara pengarah dan penjaga keharmonisan.<br>
+    <strong>Nyxian Cub:</strong> Admin percobaan yang sedang belajar dan berkembang.
+  </p>
+</div>
+
 <div class="slider--teams">
   <div class="slider--teams__team">
     <ul id="list" class="cf">
@@ -253,33 +243,10 @@
           </figcaption>
         </figure>
       </li>
-      
-      <li>
-        <figure>
-          <div>
-            <div></div>
-          </div>
-          <figcaption>
-            <h2>Bill</h2>
-            <p>Development</p>
-          </figcaption>
-        </figure>
-      </li>
-      
-      <li>
-        <figure>
-          <div>
-            <div></div> 
-          </div>
-          <figcaption>
-            <h2>Lorraine</h2>
-            <p>Front-End Development</p>
-          </figcaption>
-        </figure>
-      </li>
     </ul>
   </div>
 </div>
+
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js'></script>
 <script>
