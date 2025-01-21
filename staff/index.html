@@ -77,12 +77,15 @@
     #list {
       position: relative;
       display: flex;
+      margin-left: 0;
       transition: transform 0.5s ease;
     }
 
     #list li {
-      flex: 0 0 33.3333%; /* Default for 3 items visible */
+      position: relative;
+      display: inline-block;
       text-align: center;
+      width: 33.3333%; /* Default for 3 items visible */
       padding: 10px; /* Adds space between items */
     }
 
@@ -117,12 +120,13 @@
     #list li figure > div > div {
       background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/953/teams.jpg) no-repeat;
       background-size: cover;
+      background-position: 0px 0px;
       position: absolute;
       top: 50%;
       left: 50%;
       width: 170px;
       height: 170px;
-      transform: rotate(-45deg) translate(-50%, -50%);
+      transform: rotate(-45deg);
     }
 
     #list li figure figcaption h2 {
@@ -143,12 +147,45 @@
     }
 
     /* Media Queries for responsiveness */
-
     @media (max-width: 768px) {
+      .slider--teams {
+        max-width: 100%;
+      }
+
       #list li {
-        flex: 0 0 100%; /* Show one item at a time on smaller screens */
+        width: 100%; /* Show one item at a time on smaller screens */
+        padding: 10px;
+      }
+
+      #list li figure > div {
+        width: 100px;
+        height: 100px;
+      }
+
+      #list li figure figcaption h2 {
+        font-size: 1.2rem;
+      }
+
+      #list li figure figcaption p {
+        font-size: 0.8rem;
       }
     }
+
+    @media (max-width: 480px) {
+      #list li figure > div {
+        width: 80px;
+        height: 80px;
+      }
+
+      #list li figure figcaption h2 {
+        font-size: 1rem;
+      }
+
+      #list li figure figcaption p {
+        font-size: 0.7rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -157,8 +194,8 @@
 </header>
 <div class="slider--teams">
   <div class="slider--teams__team">
-    <ul id="list">
-      <!-- Duplicate the last item at the beginning -->
+    <ul id="list" class="cf">
+      <!-- Duplicate last item for loop -->
       <li>
         <figure>
           <div>
@@ -170,10 +207,8 @@
           </figcaption>
         </figure>
       </li>
-
-      <!-- Original items -->
       <li>
-        <figure class="active">
+        <figure>
           <div>
             <div style="background-image: url('img/katsu.jpg');"></div>
           </div>
@@ -199,16 +234,28 @@
       <li>
         <figure>
           <div>
-            <div style="background-image: url('img/IMG_20250120_221327_423.jpg');"></div>
+            <div></div>
           </div>
           <figcaption>
-            <h2>Meng</h2>
-            <p>Nyxian Beta</p>
+            <h2>Bill</h2>
+            <p>Development</p>
           </figcaption>
         </figure>
       </li>
       
-      <!-- Duplicate the first item at the end -->
+      <li>
+        <figure>
+          <div>
+            <div></div>
+          </div>
+          <figcaption>
+            <h2>Lorraine</h2>
+            <p>Front-End Development</p>
+          </figcaption>
+        </figure>
+      </li>
+      
+      <!-- Duplicate first item for loop -->
       <li>
         <figure>
           <div>
@@ -223,40 +270,31 @@
     </ul>
   </div>
 </div>
-
 <script>
-  const list = document.getElementById('list');
+  const list = document.querySelector('#list');
   const items = document.querySelectorAll('#list li');
   const itemWidth = items[0].offsetWidth;
   const totalItems = items.length;
+  let currentIndex = 1;
 
-  let currentIndex = 1; // Start at the first actual item
-  list.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-
-  // Function to move the slider
-  function moveSlider(index) {
-    list.style.transition = 'transform 0.5s ease';
-    list.style.transform = `translateX(-${index * itemWidth}px)`;
-
-    // Handle loop effect after transition ends
-    list.addEventListener('transitionend', () => {
-      if (index === 0) {
-        list.style.transition = 'none';
-        currentIndex = totalItems - 2; // Move to the second-last item
-        list.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-      } else if (index === totalItems - 1) {
-        list.style.transition = 'none';
-        currentIndex = 1; // Move to the first actual item
-        list.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-      }
-    });
+  function moveSlider() {
+    list.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
   }
 
-  // Example of moving slider automatically (looped)
-  setInterval(() => {
-    currentIndex++;
-    moveSlider(currentIndex);
-  }, 3000);
+  list.addEventListener('transitionend', () => {
+    if (currentIndex === 0) {
+      currentIndex = totalItems - 2;
+      list.style.transition = 'none';
+      moveSlider();
+    } else if (currentIndex === totalItems - 1) {
+      currentIndex = 1;
+      list.style.transition = 'none';
+      moveSlider();
+    }
+  });
+
+  list.style.transition = 'transform 0.5s ease';
+  moveSlider();
 </script>
 </body>
 </html>
