@@ -59,6 +59,7 @@
     <select id="fontType" onchange="generateFont()">
         <option value="unicode">ᴧ ʟ ᴘ ʜ ᴧ (Unicode)</option>
         <option value="smallcaps">SmallCaps</option>
+        <option value="times">Times New Roman</option>
     </select>
     <textarea id="resultText" class="result" readonly></textarea>
     <button onclick="copyToClipboard()">Salin Hasil</button>
@@ -99,6 +100,9 @@
                 const char = inputText[i];
                 result += smallCapsMapping[char] || char;
             }
+        } else if (fontType === "times") {
+            // No transformation needed for Times New Roman
+            result = inputText;
         }
 
         document.getElementById("resultText").value = result;
