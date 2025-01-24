@@ -10,57 +10,64 @@
             color: white;
             font-family: Arial, sans-serif;
             padding: 20px;
+            white-space: pre-wrap; /* Menjaga spasi dan baris baru */
+            word-wrap: break-word;
         }
+
+        .container {
+            width: 100%;
+            text-align: justify;
+        }
+
         h1 {
             text-align: center;
-        }
-        .container {
-            margin: 20px auto;
-            max-width: 800px;
+            font-size: 2em;
         }
     </style>
+    <script>
+        function convertToAlphaFont(text) {
+            const mapping = {
+                'a': 'ᴧ', 'b': 'ʙ', 'c': 'ᴄ', 'd': 'ᴅ', 'e': 'ᴇ', 'f': 'ꜰ', 'g': 'ɢ', 'h': 'ʜ', 'i': 'ɪ',
+                'j': 'ᴊ', 'k': 'ᴋ', 'l': 'ʟ', 'm': 'ᴍ', 'n': 'ɴ', 'o': 'ᴏ', 'p': 'ᴘ', 'q': 'ɋ', 'r': 'ʀ',
+                's': 's', 't': 'ᴛ', 'u': 'ᴜ', 'v': 'ᴠ', 'w': 'ᴡ', 'x': 'x', 'y': 'ʏ', 'z': 'ᴢ',
+                'A': 'ᴧ', 'B': 'ʙ', 'C': 'ᴄ', 'D': 'ᴅ', 'E': 'ᴇ', 'F': 'ꜰ', 'G': 'ɢ', 'H': 'ʜ', 'I': 'ɪ',
+                'J': 'ᴊ', 'K': 'ᴋ', 'L': 'ʟ', 'M': 'ᴍ', 'N': 'ɴ', 'O': 'ᴏ', 'P': 'ᴘ', 'Q': 'ɋ', 'R': 'ʀ',
+                'S': 's', 'T': 'ᴛ', 'U': 'ᴜ', 'V': 'ᴠ', 'W': 'ᴡ', 'X': 'x', 'Y': 'ʏ', 'Z': 'ᴢ'
+            };
+
+            return text.split('').map(char => mapping[char] || char).join('');
+        }
+
+        window.onload = function() {
+            const originalText = `
+                Untuk pemasangan userbot mempunyai resiko ke banned pada akun telegram, terutama yang mempunyai id akun awalan 6 dan 7(10 digit), id memang tidak berpengaruh tapi id 6 dan 7(10 digit) merupakan angka untuk akun yang baru bergabung ke telegram, dan itu berpeluang besar terjadi banned karena system spam telegram akan merespon sebagai akun spam jika akun yang terbilang baru dan memasang userbot.
+
+                pastikan menggunakan id lama yaitu 1,2,3,4(10 digit) 5,6,7,8,9(9 digit) jika menggunakan id 5,6,7(10 digit) pastikan akunnya sudah digunakan untuk berinteraksi selama 2 Minggu - 2 bulan
+
+                ⚠️ Penyebab akun ke delete/akun terhapus/akun terbanned bahkan sampai menjadi limit saat menggunakan userbot 💀
+
+                Penggunaan userbot pada akun Telegram dapat menyebabkan akun Anda dihapus atau dibatasi karena beberapa alasan termasuk:
+
+                1. Melanggar Ketentuan Layanan: Penggunaan userbot mungkin melanggar Ketentuan Layanan Telegram, terutama jika userbot digunakan untuk mengirim spam, mengelola pesan secara otomatis, atau mengakses fitur yang tidak diizinkan oleh Telegram.
+                2. Aktivitas mencurigakan: Jika userbot Anda melakukan aktivitas yang dianggap mencurigakan atau tidak wajar oleh sistem keamanan Telegram, akun Anda mungkin diberi peringatan atau bahkan dihapus.
+                3. Penggunaan sumber daya yang berlebihan: Userbot yang menggunakan sumber daya secara berlebihan, seperti mengirim pesan terlalu cepat atau dalam jumlah yang sangat besar, dapat menyebabkan pembatasan atau penghapusan akun.
+                4. Laporan dari pengguna lain: Jika userbot Anda mengganggu pengguna lain atau melanggar aturan grup, pengguna lain mungkin melaporkan akun Anda, yang dapat menyebabkan pembatasan atau penghapusan akun.
+
+                Untuk mengurangi risiko akun Anda dihapus atau dibatasi saat menggunakan userbot, pastikan untuk mematuhi Ketentuan Layanan Telegram, gunakan userbot dengan bijak, dan hindari aktivitas yang dapat dianggap mencurigakan atau mengganggu pengguna lain.
+
+                Jika digunakan untuk sebar list promosi atau fitur Delayspam, gunakan dengan minimal 300 detik untuk akun baru.
+
+                INGET FITUR SPAM DIGUNAKAN UNTUK PROMOSI BUKAN SPAM
+            `;
+
+            document.getElementById('content').textContent = convertToAlphaFont(originalText);
+        };
+    </script>
 </head>
 <body>
     <div class="container">
-        <h1>Pengumuman Penggunaan Userbot</h1>
-        <p id="text"></p>
+        <h1>Pengumuman Userbot</h1>
+        <pre id="content"></pre>
     </div>
-
-    <script>
-        const alphaMapping = {
-            'a': 'ᴧ', 'b': 'ʙ', 'c': 'ᴄ', 'd': 'ᴅ', 'e': 'ᴇ', 'f': 'ꜰ', 'g': 'ɢ', 'h': 'ʜ', 'i': 'ɪ',
-            'j': 'ᴊ', 'k': 'ᴋ', 'l': 'ʟ', 'm': 'ᴍ', 'n': 'ɴ', 'o': 'ᴏ', 'p': 'ᴘ', 'q': 'ɋ', 'r': 'ʀ',
-            's': 's', 't': 'ᴛ', 'u': 'ᴜ', 'v': 'ᴠ', 'w': 'ᴡ', 'x': 'x', 'y': 'ʏ', 'z': 'ᴢ',
-            'A': 'ᴧ', 'B': 'ʙ', 'C': 'ᴄ', 'D': 'ᴅ', 'E': 'ᴇ', 'F': 'ꜰ', 'G': 'ɢ', 'H': 'ʜ', 'I': 'ɪ',
-            'J': 'ᴊ', 'K': 'ᴋ', 'L': 'ʟ', 'M': 'ᴍ', 'N': 'ɴ', 'O': 'ᴏ', 'P': 'ᴘ', 'Q': 'ɋ', 'R': 'ʀ',
-            'S': 's', 'T': 'ᴛ', 'U': 'ᴜ', 'V': 'ᴠ', 'W': 'ᴡ', 'X': 'x', 'Y': 'ʏ', 'Z': 'ᴢ'
-        };
-
-        const originalText = `Untuk pemasangan userbot mempunyai resiko ke banned pada akun telegram, terutama yang mempunyai id akun awalan 6 dan 7(10 digit), id memang tidak berpengaruh tapi id 6 dan 7(10 digit) merupakan angka untuk akun yang baru bergabung ke telegram, dan itu berpeluang besar terjadi banned karena system spam telegram akan merespon sebagai akun spam jika akun yang terbilang baru dan memasang userbot.
-
-pastikan menggunakan id lama yaitu 1,2,3,4(10 digit) 5,6,7,8,9(9 digit) jika menggunakan id 5,6,7(10 digit) pastikan akunnya sudah digunakan untuk berinteraksi selama 2 Minggu - 2 bulan
-
-⚠️ Penyebab akun ke delete/akun terhapus/akun terbanned bahkan sampai menjadi limit saat menggunakan userbot 💀
-
-Penggunaan userbot pada akun Telegram dapat menyebabkan akun Anda dihapus atau dibatasi karena beberapa alasan termasuk:
-
-1. Melanggar Ketentuan Layanan: Penggunaan userbot mungkin melanggar Ketentuan Layanan Telegram, terutama jika userbot digunakan untuk mengirim spam, mengelola pesan secara otomatis, atau mengakses fitur yang tidak diizinkan oleh Telegram.
-2. Aktivitas mencurigakan: Jika userbot Anda melakukan aktivitas yang dianggap mencurigakan atau tidak wajar oleh sistem keamanan Telegram, akun Anda mungkin diberi peringatan atau bahkan dihapus.
-3. Penggunaan sumber daya yang berlebihan: Userbot yang menggunakan sumber daya secara berlebihan, seperti mengirim pesan terlalu cepat atau dalam jumlah yang sangat besar, dapat menyebabkan pembatasan atau penghapusan akun.
-4. Laporan dari pengguna lain: Jika userbot Anda mengganggu pengguna lain atau melanggar aturan grup, pengguna lain mungkin melaporkan akun Anda, yang dapat menyebabkan pembatasan atau penghapusan akun.
-
-Untuk mengurangi risiko akun Anda dihapus atau dibatasi saat menggunakan userbot, pastikan untuk mematuhi Ketentuan Layanan Telegram, gunakan userbot dengan bijak, dan hindari aktivitas yang dapat dianggap mencurigakan atau mengganggu pengguna lain.
-
-Jika digunakan untuk sebar list promosi atau fitur Delayspam, gunakan dengan minimal 300 detik untuk akun baru.
-
-INGET FITUR SPAM DIGUNAKAN UNTUK PROMOSI BUKAN SPAM`;
-
-        function applyAlphaFont(text) {
-            return text.split('').map(char => alphaMapping[char] || char).join('');
-        }
-
-        const convertedText = applyAlphaFont(originalText);
-        document.getElementById('text').textContent = convertedText;
-    </script>
 </body>
 </html>
