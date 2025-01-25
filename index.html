@@ -83,6 +83,12 @@
             align-items: center;
             cursor: pointer;
             font-size: 24px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
         }
 
         .floating-menu {
@@ -103,10 +109,17 @@
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             font-size: 14px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
         .floating-menu a:hover {
             background-color: #007BFF;
+        }
+
+        /* Shadow effect when menu is visible */
+        .floating-menu a.active {
+            box-shadow: 0 0 15px #007BFF;
+            transform: scale(1.05);
         }
 
         footer {
@@ -133,10 +146,10 @@
     </div>
 
     <!-- Floating Button -->
-    <button class="floating-btn" id="floatingButton"><i class="fas fa-plus"></i></button>
+    <button class="floating-btn" id="floatingButton"><i id="floatingIcon" class="fas fa-plus"></i></button>
     <div class="floating-menu" id="floatingMenu">
-        <a href="faq.html">FAQ</a>
-        <a href="pengumumanubot.html">Pengumuman</a>
+        <a href="faq.html" id="faqLink">FAQ</a>
+        <a href="pengumumanubot.html" id="announcementLink">Pengumuman</a>
     </div>
 
     <!-- Footer -->
@@ -150,54 +163,32 @@
         communityButton.addEventListener("click", function(event) {
             window.location.href = "https://t.me/NyxianNetwork";
         });
-        communityButton.addEventListener("contextmenu", function(event) {
-            event.preventDefault(); // Disable right-click on the button
-        });
-        communityButton.addEventListener("mousedown", function(event) {
-            event.preventDefault(); // Prevent long-press or touch-and-hold
-        });
 
-        // Staff Organisasi button functionality
-        var staffButton = document.getElementById("staffButton");
-
-        var clickTimer;
-        staffButton.addEventListener("mousedown", function() {
-            clickTimer = setTimeout(function() {
-                staffButton.textContent = "#blocked";
-            }, 1000); // 1000ms or 1 second to detect long click
-        });
-
-        staffButton.addEventListener("mouseup", function() {
-            clearTimeout(clickTimer);
-            if (staffButton.textContent !== "#blocked") {
-                window.location.href = "/staff"; // Redirects to staff.html if click is not long
-            }
-        });
-
-        staffButton.addEventListener("mouseout", function() {
-            clearTimeout(clickTimer); // Prevents the blocked text if the mouse leaves the button
-        });
-
-        // Konten Tiktok button functionality
-        var tiktokButton = document.getElementById("tiktokButton");
-        tiktokButton.addEventListener("click", function() {
-            window.location.href = "konten/tiktok.html";
-        });
-        tiktokButton.addEventListener("contextmenu", function(event) {
-            event.preventDefault(); // Disable right-click on the button
-        });
-        tiktokButton.addEventListener("mousedown", function(event) {
-            event.preventDefault(); // Prevent long-press or touch-and-hold
-        });
-
-        // Floating Button Functionality
+        // Floating Button and Menu Functionality
         var floatingButton = document.getElementById("floatingButton");
         var floatingMenu = document.getElementById("floatingMenu");
+        var floatingIcon = document.getElementById("floatingIcon");
+        var faqLink = document.getElementById("faqLink");
+        var announcementLink = document.getElementById("announcementLink");
+
         floatingButton.addEventListener("click", function() {
+            // Toggle menu visibility
             if (floatingMenu.style.display === "none" || floatingMenu.style.display === "") {
                 floatingMenu.style.display = "flex";
+                // Add shadow effect to links
+                faqLink.classList.add("active");
+                announcementLink.classList.add("active");
+                // Change icon to "x"
+                floatingIcon.classList.remove("fa-plus");
+                floatingIcon.classList.add("fa-times");
             } else {
                 floatingMenu.style.display = "none";
+                // Remove shadow effect from links
+                faqLink.classList.remove("active");
+                announcementLink.classList.remove("active");
+                // Change icon back to "+"
+                floatingIcon.classList.remove("fa-times");
+                floatingIcon.classList.add("fa-plus");
             }
         });
 
