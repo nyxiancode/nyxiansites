@@ -81,6 +81,45 @@
             background-color: rgba(0, 0, 0, 0.8);
             padding: 10px 0;
         }
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .floating-menu {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .floating-menu a {
+            text-decoration: none;
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+        }
+        .floating-menu a:hover {
+            background-color: #007BFF;
+        }
     </style>
 </head>
 <body>
@@ -95,6 +134,13 @@
 
     <!-- Konten Tiktok Button -->
     <button class="dropbtn" id="tiktokButton"><i class="fab fa-tiktok"></i> Konten Tiktok</button>
+
+    <!-- Floating Button -->
+    <button class="floating-btn" id="floatingButton"><i class="fas fa-plus"></i></button>
+    <div class="floating-menu" id="floatingMenu">
+        <a href="faq.html">FAQ</a>
+        <a href="pengumumanubot.html">Pengumuman</a>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -145,6 +191,17 @@
         });
         tiktokButton.addEventListener("mousedown", function(event) {
             event.preventDefault(); // Prevent long-press or touch-and-hold
+        });
+
+        // Floating Button Functionality
+        var floatingButton = document.getElementById("floatingButton");
+        var floatingMenu = document.getElementById("floatingMenu");
+        floatingButton.addEventListener("click", function() {
+            if (floatingMenu.style.display === "none" || floatingMenu.style.display === "") {
+                floatingMenu.style.display = "flex";
+            } else {
+                floatingMenu.style.display = "none";
+            }
         });
 
         // Set the current year in the footer
