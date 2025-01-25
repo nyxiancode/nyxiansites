@@ -9,16 +9,26 @@
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/pb19m8.jpg">
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
             background-color: black;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .content {
+            flex: 1; /* Membuat konten mengambil sisa ruang */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
         }
         .video-container {
             position: relative;
@@ -73,13 +83,12 @@
             border-radius: 0 0 4px 4px;
         }
         footer {
-            position: fixed;
-            bottom: 10px;
-            text-align: center;
             width: 100%;
             color: white;
             background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
             padding: 10px 0;
+            margin-top: auto; /* Membuat footer selalu berada di bawah */
         }
         /* Floating Button */
         .floating-btn {
@@ -123,17 +132,19 @@
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <video src="1735860081323.mp4" autoplay muted loop></video>
-    </div>
-    <!-- Komunitas Button -->
-    <button class="dropbtn" id="communityButton"><i class="fas fa-server"></i>Komunitas</button>
-    
-    <!-- Staff Organisasi Button -->
-    <button class="dropbtn" id="staffButton"><i class="fas fa-users"></i> Staff Organisasi</button>
+    <div class="content">
+        <div class="video-container">
+            <video src="1735860081323.mp4" autoplay muted loop></video>
+        </div>
+        <!-- Komunitas Button -->
+        <button class="dropbtn" id="communityButton"><i class="fas fa-server"></i>Komunitas</button>
+        
+        <!-- Staff Organisasi Button -->
+        <button class="dropbtn" id="staffButton"><i class="fas fa-users"></i> Staff Organisasi</button>
 
-    <!-- Konten Tiktok Button -->
-    <button class="dropbtn" id="tiktokButton"><i class="fab fa-tiktok"></i> Konten Tiktok</button>
+        <!-- Konten Tiktok Button -->
+        <button class="dropbtn" id="tiktokButton"><i class="fab fa-tiktok"></i> Konten Tiktok</button>
+    </div>
 
     <!-- Floating Button -->
     <button class="floating-btn" id="floatingButton"><i class="fas fa-plus"></i></button>
