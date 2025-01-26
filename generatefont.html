@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Font Generator</title>
+    <title>Font Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Symbols&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -36,7 +36,7 @@
             color: #f39c12;
         }
 
-        input, select, button {
+        textarea, select, button {
             font-family: 'Noto Sans', sans-serif;
             width: 100%;
             padding: 12px 15px;
@@ -51,9 +51,14 @@
             transition: all 0.3s ease-in-out;
         }
 
-        input:focus, select:focus {
+        textarea:focus, select:focus {
             background: rgba(255, 255, 255, 0.2);
             border-color: #f39c12;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
         }
 
         button {
@@ -82,6 +87,7 @@
             word-wrap: break-word;
             text-align: left;
             min-width: 100px;
+            max-width: 100%;
         }
 
         @keyframes fadeIn {
@@ -100,7 +106,7 @@
 
 <div class="container">
     <h1>Font Generator</h1>
-    <input type="text" id="inputText" placeholder="Type your text here" oninput="generateFont()">
+    <textarea id="inputText" placeholder="Type your text here" oninput="generateFont()"></textarea>
     <select id="fontType" onchange="generateFont()">
         <option value="unicode">ᴧ ʟ ᴘ ʜ ᴧ (Unicode)</option>
         <option value="smallcaps">SmallCaps</option>
@@ -118,7 +124,6 @@
 
         let result = '';
 
-        // Unicode Mapping
         if (fontType === "unicode") {
             const unicodeMapping = {
                 'a': 'ᴧ', 'b': 'ʙ', 'c': 'ᴄ', 'd': 'ᴅ', 'e': 'ᴇ', 'f': 'ꜰ', 'g': 'ɢ', 'h': 'ʜ', 'i': 'ɪ',
@@ -164,7 +169,6 @@
         }
 
         resultDiv.textContent = result;
-        resultDiv.style.width = Math.min(500, resultDiv.scrollWidth + 20) + "px";
     }
 
     function copyToClipboard() {
