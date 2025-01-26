@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Font Generator</title>
-    <!-- Import Google Fonts -->
+    <title>Dynamic Font Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Symbols&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Body Styling */
         body {
             font-family: 'Noto Sans', sans-serif;
             background: linear-gradient(135deg, #1f1c2c, #928dab);
@@ -20,7 +18,6 @@
             overflow: hidden;
         }
 
-        /* Container */
         .container {
             background: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
@@ -39,7 +36,7 @@
             color: #f39c12;
         }
 
-        input, select, textarea, button {
+        input, select, button {
             font-family: 'Noto Sans', sans-serif;
             width: 100%;
             padding: 12px 15px;
@@ -48,9 +45,6 @@
             border-radius: 8px;
             outline: none;
             font-size: 1rem;
-        }
-
-        input, select {
             background: rgba(255, 255, 255, 0.1);
             color: #f8f9fa;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -60,14 +54,6 @@
         input:focus, select:focus {
             background: rgba(255, 255, 255, 0.2);
             border-color: #f39c12;
-        }
-
-        textarea {
-            height: 150px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #f8f9fa;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            resize: none;
         }
 
         button {
@@ -86,11 +72,18 @@
 
         .result {
             font-family: 'Noto Sans', 'Noto Sans Symbols', 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
             white-space: pre-wrap;
             word-wrap: break-word;
+            text-align: left;
+            min-width: 100px;
         }
 
-        /* Keyframe Animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -113,7 +106,7 @@
         <option value="smallcaps">SmallCaps</option>
         <option value="typewrite">Typewrite</option>
     </select>
-    <textarea id="resultText" class="result" readonly></textarea>
+    <div id="resultText" class="result"></div>
     <button onclick="copyToClipboard()">Copy Result</button>
 </div>
 
@@ -121,9 +114,11 @@
     function generateFont() {
         const inputText = document.getElementById("inputText").value;
         const fontType = document.getElementById("fontType").value;
+        const resultDiv = document.getElementById("resultText");
 
         let result = '';
 
+        // Unicode Mapping
         if (fontType === "unicode") {
             const unicodeMapping = {
                 'a': 'ᴧ', 'b': 'ʙ', 'c': 'ᴄ', 'd': 'ᴅ', 'e': 'ᴇ', 'f': 'ꜰ', 'g': 'ɢ', 'h': 'ʜ', 'i': 'ɪ',
@@ -168,14 +163,15 @@
             }
         }
 
-        document.getElementById("resultText").value = result;
+        resultDiv.textContent = result;
+        resultDiv.style.width = Math.min(500, resultDiv.scrollWidth + 20) + "px";
     }
 
     function copyToClipboard() {
-        const resultText = document.getElementById("resultText");
-        resultText.select();
-        document.execCommand("copy");
-        alert("Result copied to clipboard!");
+        const resultDiv = document.getElementById("resultText");
+        navigator.clipboard.writeText(resultDiv.textContent)
+            .then(() => alert("Copied to clipboard!"))
+            .catch(err => alert("Failed to copy text."));
     }
 </script>
 
