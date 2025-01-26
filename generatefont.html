@@ -5,66 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Font Generator</title>
     <!-- Import Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Symbols&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+Symbols&display=swap" rel="stylesheet">
     <style>
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            overflow: hidden;
         }
+
+        /* Futuristic Animation */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 60%);
+            animation: pulse 6s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        /* Container Styles */
         .container {
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        input, textarea, button, select {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
             width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
+
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 20px;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .result {
-            font-size: 20px;
-            font-family: 'Noto Sans', 'Noto Sans Symbols', 'Courier New', monospace;
+
+        input, textarea, select, button {
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input, select {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        textarea {
+            background: rgba(255, 255, 255, 0.1);
+            color: #00d2ff;
+            resize: none;
+            font-family: 'Noto Sans', 'Courier New', monospace;
             white-space: pre-wrap;
             word-wrap: break-word;
         }
+
         button {
-            background-color: #4CAF50;
-            color: white;
+            background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+            color: #fff;
+            font-weight: bold;
             cursor: pointer;
-            border: none;
-            font-size: 16px;
+            transition: transform 0.2s ease-in-out;
         }
+
         button:hover {
-            background-color: #45a049;
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            box-shadow: 0 0 8px rgba(0, 210, 255, 0.8);
+        }
+
+        /* Small Animation */
+        textarea::selection, input::selection {
+            background: rgba(0, 210, 255, 0.3);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Font Generator</h1>
-    <input type="text" id="inputText" placeholder="Type your text here" oninput="generateFont()">
+    <h1>Futuristic Font Generator</h1>
+    <input type="text" id="inputText" placeholder="Type your text here..." oninput="generateFont()">
     <select id="fontType" onchange="generateFont()">
         <option value="unicode">ᴧ ʟ ᴘ ʜ ᴧ (Unicode)</option>
         <option value="smallcaps">SmallCaps</option>
         <option value="typewrite">Typewrite</option>
     </select>
-    <textarea id="resultText" class="result" readonly></textarea>
-    <button onclick="copyToClipboard()">Salin Hasil</button>
+    <textarea id="resultText" rows="6" readonly></textarea>
+    <button onclick="copyToClipboard()">Copy Result</button>
 </div>
 
 <script>
@@ -125,7 +191,7 @@
         const resultText = document.getElementById("resultText");
         resultText.select();
         document.execCommand("copy");
-        alert("Hasil telah disalin ke clipboard!");
+        alert("Result copied to clipboard!");
     }
 </script>
 
