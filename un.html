@@ -12,14 +12,30 @@
             box-sizing: border-box;
         }
 
-        /* Styling untuk header */
-        header {
+        /* Styling untuk body */
+        body {
             background-color: black;
             color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Styling untuk header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            z-index: 1000;
         }
 
         /* Logo */
@@ -86,6 +102,10 @@
 
             nav {
                 display: none;
+            }
+
+            nav.active {
+                display: block;
             }
 
             .menu {
