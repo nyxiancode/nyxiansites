@@ -25,7 +25,7 @@
             align-items: center;
             justify-content: center;
             margin-top: 20px;
-            background-color: #0D47A1; /* Warna biru tua */
+            background-color: #084A81; /* Warna biru tua lebih gelap */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -33,67 +33,44 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.2s ease-in-out;
+            transition: all 0.3s ease; /* Transisi halus */
         }
         .telegram-btn i {
             margin-right: 8px; /* Jarak antara ikon dan teks */
         }
         .telegram-btn:hover {
-            background-color: #004ba0; /* Efek hover dengan biru lebih gelap */
+            background-color: #063D70; /* Efek hover */
         }
+        /* Efek glitch */
         .telegram-btn:active {
-            transform: scale(0.95); /* Efek klik dengan sedikit pengecilan */
-        }
-        .glitch {
-            animation: glitch 0.3s linear infinite;
+            animation: glitch 0.2s ease-out;
         }
         @keyframes glitch {
             0% {
-                transform: translateX(0);
-                clip-path: inset(0 0 0 0);
+                transform: translateX(0) scale(1);
             }
             10% {
-                transform: translateX(-10px);
-                clip-path: inset(0 0 0 10px);
+                transform: translateX(-4px) scale(1.1);
             }
             20% {
-                transform: translateX(10px);
-                clip-path: inset(0 10px 0 0);
+                transform: translateX(4px) scale(1.1);
             }
             30% {
-                transform: translateX(-5px);
-                clip-path: inset(0 0 0 5px);
+                transform: translateX(-4px) scale(1.05);
             }
             40% {
-                transform: translateX(5px);
-                clip-path: inset(0 5px 0 0);
+                transform: translateX(4px) scale(1.05);
             }
             50% {
-                transform: translateX(0);
-                clip-path: inset(0 0 0 0);
-            }
-            100% {
-                transform: translateX(0);
-                clip-path: inset(0 0 0 0);
+                transform: translateX(0) scale(1);
             }
         }
     </style>
 </head>
 <body>
     <img src="image/nyx.png" alt="Logo Nyx">
-    <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank" id="telegram-btn">
+    <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
         <i class="fab fa-telegram-plane"></i> Telegram
     </a>
-
-    <script>
-        const btn = document.getElementById('telegram-btn');
-        
-        btn.addEventListener('click', function() {
-            btn.classList.add('glitch');
-            setTimeout(function() {
-                btn.classList.remove('glitch');
-            }, 300); // Menghapus efek glitch setelah 300ms
-        });
-    </script>
 </body>
 </html>
