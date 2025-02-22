@@ -35,12 +35,13 @@
             font-size: 24px;
             color: white;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
         /* Sidebar Menu */
         .sidebar {
             position: fixed;
             top: 0;
-            right: -250px;
+            right: -250px; /* Sembunyikan sidebar di awal */
             width: 250px;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
@@ -68,17 +69,6 @@
             font-size: 24px;
             color: white;
             cursor: pointer;
-        }
-        /* Overlay untuk menutup menu */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
         }
         /* Konten utama */
         .content {
@@ -132,19 +122,15 @@
 <body>
     <header>
         <img src="image/nyx.png" alt="Logo Header">
-        <i class="fas fa-bars menu-icon" onclick="openMenu()"></i>
+        <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
     </header>
-
-    <!-- Overlay untuk menutup menu -->
-    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
     <!-- Sidebar Menu -->
     <div class="sidebar" id="sidebar">
-        <i class="fas fa-times close-btn" onclick="closeMenu()"></i>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="#" onclick="toggleMenu()">Home</a>
+        <a href="#" onclick="toggleMenu()">About</a>
+        <a href="#" onclick="toggleMenu()">Services</a>
+        <a href="#" onclick="toggleMenu()">Contact</a>
     </div>
 
     <div class="content">
@@ -155,14 +141,18 @@
     </div>
 
     <script>
-        function openMenu() {
-            document.getElementById("sidebar").style.right = "0"; // Buka sidebar
-            document.getElementById("overlay").style.display = "block"; // Tampilkan overlay
-        }
+        function toggleMenu() {
+            var sidebar = document.getElementById("sidebar");
+            var menuIcon = document.getElementById("menuIcon");
 
-        function closeMenu() {
-            document.getElementById("sidebar").style.right = "-250px"; // Tutup sidebar
-            document.getElementById("overlay").style.display = "none"; // Sembunyikan overlay
+            // Jika sidebar sedang tertutup, buka
+            if (sidebar.style.right === "-250px" || sidebar.style.right === "") {
+                sidebar.style.right = "0";
+                menuIcon.classList.add("open"); // Tambahkan efek ikon berubah
+            } else {
+                sidebar.style.right = "-250px";
+                menuIcon.classList.remove("open");
+            }
         }
     </script>
 </body>
