@@ -1,11 +1,8 @@
-# Mengaktifkan mod_rewrite
-RewriteEngine On
-
-# Mengatur halaman 404 custom
-ErrorDocument 404 /404.html
-
-<Files "nyx.png">
-    Order Deny,Allow
+# Mencegah akses langsung ke image/nyx.png
+<Files "image/nyx.png">
+    Order Allow,Deny
     Deny from all
-    Allow from env=REDIRECT_STATUS
 </Files>
+
+# Mengalihkan halaman yang tidak ditemukan ke 404.html
+ErrorDocument 404 /404.html
