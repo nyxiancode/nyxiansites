@@ -3,38 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyxian Organization</title>
+    <title>Header dengan Menu Burger</title>
     <style>
         /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
-        /* Warna dasar */
-        body {
+        /* Styling untuk header */
+        header {
             background-color: black;
             color: white;
-        }
-
-        /* Header */
-        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 50px;
-            background-color: black; /* Latar belakang header hitam */
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
+            padding: 10px 20px;
         }
 
+        /* Logo */
         header img {
-            width: 50px;
+            width: 100px; /* Sesuaikan ukuran logo */
+        }
+
+        /* Menu burger */
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Menu */
+        nav {
+            display: flex;
         }
 
         nav ul {
@@ -43,185 +53,84 @@
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin-left: 20px;
         }
 
         nav ul li a {
-            color: white; /* Tulisannya menjadi putih */
             text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: cyan;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: url('image/nyx-bg.jpg') no-repeat center center/cover;
-            position: relative;
-            padding-top: 80px;
-        }
-
-        .hero h1 {
-            font-size: 50px;
-            font-weight: bold;
-            color: cyan;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .hero p {
-            font-size: 20px;
             color: white;
-            margin-top: 10px;
-            opacity: 0.8;
-            animation: slideUp 2s ease-in-out;
-        }
-
-        /* Tentang */
-        .about {
-            padding: 80px 50px;
-            text-align: center;
-            background: rgba(10, 10, 30, 0.9);
-        }
-
-        .about h2 {
-            color: cyan;
-            font-size: 32px;
-        }
-
-        .about p {
             font-size: 18px;
-            margin-top: 10px;
-            opacity: 0.8;
         }
 
-        /* Layanan */
-        .services {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 50px;
-            background: black;
-        }
-
-        .service-box {
-            width: 300px;
+        /* Tampilan menu ketika di klik */
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: black;
+            border-radius: 8px;
             padding: 20px;
-            margin: 20px;
-            text-align: center;
-            background: rgba(0, 0, 50, 0.8);
-            border-radius: 10px;
-            transition: 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .service-box:hover {
-            transform: scale(1.05);
+        .menu.active {
+            display: block;
         }
 
-        .service-box h3 {
-            color: cyan;
-            font-size: 24px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 50, 0.8);
-        }
-
-        footer p {
-            color: white;
-            opacity: 0.7;
-        }
-
-        /* Animasi */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* Responsif */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
+        /* Responsif untuk layar kecil */
+        @media screen and (max-width: 768px) {
+            .burger {
+                display: flex;
             }
 
-            nav ul {
-                margin-top: 10px;
+            nav {
+                display: none;
             }
 
-            .hero h1 {
-                font-size: 36px;
+            .menu {
+                position: fixed;
+                top: 50px;
+                right: 0;
+                width: 200px;
+                height: 100%;
+                background-color: black;
+                padding: 30px;
             }
 
-            .hero p {
-                font-size: 16px;
+            nav.active {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
-
     <!-- Header -->
     <header>
-        <img src="image/nyx.png" alt="Nyxian Logo">
-        <nav>
+        <img src="image/nyx.png" alt="Logo Nyx">
+        <div class="burger" id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="menu" class="menu">
             <ul>
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#services">Layanan</a></li>
-                <li><a href="#contact">Kontak</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Selamat Datang di Nyxian</h1>
-        <p>Organisasi Futuristik untuk Masa Depan</p>
-    </section>
+    <script>
+        // JavaScript untuk toggle menu burger
+        const burger = document.getElementById('burger');
+        const menu = document.getElementById('menu');
 
-    <!-- Tentang -->
-    <section id="about" class="about">
-        <h2>Tentang Nyxian</h2>
-        <p>Nyxian adalah organisasi yang berfokus pada inovasi teknologi dan eksplorasi dunia digital.</p>
-    </section>
-
-    <!-- Layanan -->
-    <section id="services" class="services">
-        <div class="service-box">
-            <h3>Pengembangan AI</h3>
-            <p>Meneliti dan mengembangkan kecerdasan buatan.</p>
-        </div>
-        <div class="service-box">
-            <h3>Keamanan Cyber</h3>
-            <p>Menjaga keamanan data dan sistem informasi.</p>
-        </div>
-        <div class="service-box">
-            <h3>Eksplorasi Digital</h3>
-            <p>Mengeksplorasi dunia digital dan blockchain.</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <p>&copy; 2025 Nyxian Organization. Semua Hak Dilindungi.</p>
-    </footer>
-
+        burger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
