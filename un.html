@@ -31,14 +31,15 @@
             max-height: 100%;
             max-width: 50px;
             object-fit: contain;
-            pointer-events: none; /* Mencegah interaksi */
-            user-select: none; /* Mencegah seleksi */
+            pointer-events: none;
+            user-select: none;
         }
         /* Menu Burger */
         .menu-icon {
             font-size: 24px;
             color: white;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
         /* Sidebar */
         .sidebar {
@@ -78,8 +79,8 @@
             width: 150px;
             height: auto;
             margin-bottom: 20px;
-            pointer-events: none; /* Mencegah interaksi */
-            user-select: none; /* Mencegah seleksi */
+            pointer-events: none;
+            user-select: none;
         }
         .telegram-btn {
             display: flex;
@@ -122,7 +123,7 @@
         }
     </style>
 </head>
-<body oncontextmenu="return false"> <!-- Mencegah klik kanan di seluruh halaman -->
+<body oncontextmenu="return false">
     <header>
         <img src="image/nyx.png" alt="Logo Header" class="protected-logo">
         <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
@@ -156,11 +157,16 @@
     <script>
         function toggleMenu() {
             var sidebar = document.getElementById("sidebar");
+            var menuIcon = document.getElementById("menuIcon");
 
             if (sidebar.style.right === "-250px" || sidebar.style.right === "") {
                 sidebar.style.right = "0";
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-times"); // Ubah ke "X"
             } else {
                 sidebar.style.right = "-250px";
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars"); // Kembali ke burger
             }
         }
 
