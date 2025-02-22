@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyxian Network</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <title>Header dengan Logo, Menu Burger, dan About Card</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             background-color: black;
             margin: 0;
             font-family: Arial, sans-serif;
             color: white;
+            text-align: center;
         }
         /* Header */
         header {
@@ -36,7 +37,6 @@
             font-size: 24px;
             color: white;
             cursor: pointer;
-            transition: transform 0.3s ease;
         }
         /* Sidebar Menu */
         .sidebar {
@@ -110,31 +110,29 @@
             40% { transform: translateX(4px) scale(1.05); }
             50% { transform: translateX(0) scale(1); }
         }
-        /* About Card */
+        /* Card About */
         .about-card {
-            margin-top: 30px;
-            background: linear-gradient(135deg, #0A192F 10%, #021526 90%);
+            background: rgba(15, 15, 15, 0.8);
+            border: 2px solid #0D47A1;
             border-radius: 10px;
             padding: 20px;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0px 0px 15px rgba(0, 144, 255, 0.3);
-            text-align: center;
-            border: 1px solid rgba(0, 144, 255, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 400px;
+            margin-top: 40px;
+            box-shadow: 0px 0px 10px rgba(13, 71, 161, 0.8);
+            transition: transform 0.3s ease-in-out;
         }
         .about-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0px 0px 20px rgba(0, 144, 255, 0.5);
+            transform: scale(1.05);
         }
         .about-card h2 {
-            color: #00C3FF;
+            color: #0D47A1;
+            font-size: 22px;
             margin-bottom: 10px;
         }
         .about-card p {
-            color: #B0C7D8;
             font-size: 14px;
-            line-height: 1.5;
+            color: #ccc;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -157,16 +155,12 @@
         <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
             <i class="fab fa-telegram-plane"></i> Telegram
         </a>
-        
-        <!-- About Card -->
+
+        <!-- Card About -->
         <div class="about-card">
-            <h2>About Nyxian Network</h2>
-            <p>
-                <strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan.  
-                Di sini, kita ngobrol, bercanda, dan kadang ngoprek website atau proyek iseng lainnya.  
-                <br><br>
-                Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!
-            </p>
+            <h2>About</h2>
+            <p><strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan. Di sini, kita ngobrol, bercanda, dan kadang ngoprek website atau proyek iseng lainnya.</p>
+            <p>Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!</p>
         </div>
     </div>
 
