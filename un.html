@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo di Tengah dengan Header</title>
+    <title>Logo di Tengah</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Menambahkan Font Awesome -->
     <style>
         body {
@@ -11,27 +11,30 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
+        /* Header */
         header {
-            background-color: #084A81; /* Warna biru tua */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            position: absolute;
-            top: 0;
-            width: 100%;
+            background-color: #084A81; /* Warna biru tua lebih gelap */
+            padding: 10px 0; /* Padding yang kecil agar header tidak terlalu besar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+        header img {
+            width: 50px; /* Ukuran logo di header */
+            height: auto;
+        }
+        /* Konten utama */
         .content {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin-top: 100px; /* Memberikan ruang untuk header */
+            height: calc(100vh - 60px); /* Mengurangi tinggi header */
         }
         img {
-            width: 150px; /* Ukuran logo */
-            height: auto;
-            margin-top: -50px;
+            width: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
+            height: auto; /* Menjaga rasio aspek gambar */
+            margin-top: -50px; /* Menggeser logo sedikit ke atas */
         }
         .telegram-btn {
             display: flex;
@@ -46,14 +49,15 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Transisi halus */
         }
         .telegram-btn i {
-            margin-right: 8px;
+            margin-right: 8px; /* Jarak antara ikon dan teks */
         }
         .telegram-btn:hover {
-            background-color: #063D70;
+            background-color: #063D70; /* Efek hover */
         }
+        /* Efek glitch */
         .telegram-btn:active {
             animation: glitch 0.2s ease-out;
         }
@@ -81,8 +85,9 @@
 </head>
 <body>
     <header>
-        <h1>Selamat Datang di Nyxian Network</h1>
+        <img src="image/nyx.png" alt="Logo Header">
     </header>
+    
     <div class="content">
         <img src="image/nyx.png" alt="Logo Nyx">
         <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
