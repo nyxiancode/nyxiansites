@@ -122,7 +122,7 @@
         }
         /* Footer */
         footer {
-            background-color: #0D47A1; /* Warna footer */
+            background-color: #333; /* Putih gelap */
             color: white;
             text-align: center;
             padding: 20px;
@@ -131,13 +131,12 @@
         footer img {
             width: 50px;
             height: auto;
-            filter: grayscale(100%); /* Default grayscale */
-            transition: filter 0.3s ease, transform 0.3s ease;
+            filter: grayscale(100%); /* Awalnya hitam putih */
+            transition: all 0.3s ease;
             cursor: pointer;
         }
         footer img:hover {
-            filter: grayscale(0); /* Warna penuh saat hover */
-            transform: scale(1.1); /* Efek zoom ketika hover */
+            filter: grayscale(0%); /* Menjadi berwarna saat hover */
         }
         footer .contact-info {
             margin-top: 20px;
@@ -148,7 +147,7 @@
             text-decoration: none;
         }
         footer .contact-info a:hover {
-            color: #FFEB3B; /* Warna hover untuk kontak */
+            color: #0D47A1;
         }
     </style>
 </head>
@@ -164,7 +163,6 @@
         <a href="#about" onclick="toggleMenu()">About</a>
         <a href="#footer" onclick="toggleMenu()">Contact</a>
         <a href="#" onclick="toggleMenu()">Services</a>
-        <a href="#" onclick="toggleMenu()">Contact</a>
     </div>
 
     <div class="content">
