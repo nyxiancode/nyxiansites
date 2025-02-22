@@ -6,30 +6,80 @@
     <title>404 - Halaman Tidak Ditemukan</title>
     <style>
         body {
-            background-color: black;
-            color: white;
+            background-color: #121212;
+            color: #00ff99; /* Warna neon hijau untuk kesan futuristik */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: 'Roboto', sans-serif;
             flex-direction: column;
-            font-family: Arial, sans-serif;
+            text-align: center;
         }
+
         h1 {
-            font-size: 2rem;
-            margin: 20px 0;
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #00ff99;
+            text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99;
         }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ffffff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
         img {
             width: 150px;
             height: auto;
             margin-top: -50px;
+            pointer-events: none; /* Mencegah logo dari interaksi klik */
+        }
+
+        .neon {
+            font-size: 2rem;
+            color: #00ff99;
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon {
+            0% {
+                text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99, 0 0 15px #00ff99, 0 0 20px #00ff99;
+            }
+            50% {
+                text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99, 0 0 40px #00ff99;
+            }
+            100% {
+                text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99, 0 0 15px #00ff99, 0 0 20px #00ff99;
+            }
         }
     </style>
 </head>
 <body>
-    <img src="image/nyx.png" alt="Logo Nyx">
-    <h1>404 - Halaman Tidak Ditemukan</h1>
-    <p>Maaf, halaman yang Anda cari tidak ada.</p>
+    <div class="container">
+        <img src="image/nyx.png" alt="Logo Nyx">
+        <h1>404</h1>
+        <p class="neon">Halaman Tidak Ditemukan</p>
+        <p>Maaf, halaman yang Anda cari tidak ada di sini.</p>
+    </div>
+
+    <script>
+        // Mencegah klik kanan dan tekan lama pada logo
+        const logo = document.querySelector('img');
+        logo.addEventListener('contextmenu', (e) => e.preventDefault());  // Mencegah klik kanan
+        logo.addEventListener('touchstart', (e) => e.preventDefault());  // Mencegah tekan lama pada layar sentuh
+    </script>
 </body>
 </html>
