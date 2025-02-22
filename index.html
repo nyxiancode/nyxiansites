@@ -1,203 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyxian</title>
-    <!-- Link to FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/pb19m8.jpg">
+    <title>Nyxian Network</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            color: white;
-        }
-
         body {
             background-color: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Push footer to the bottom */
-        }
-
-        .content {
-            flex: 1; /* Allows content to grow and push footer to the bottom */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-bottom: 20px; /* Prevents overlap with floating button */
-        }
-
-        .video-container {
-            position: relative;
-            width: 50%;
-            max-width: 400px;
-            margin-bottom: 20px;
-        }
-
-        video {
-            width: 100%;
-            display: block;
-            pointer-events: none;
-        }
-
-        .dropbtn {
-            background-color: #333;
+            margin: 0;
+            font-family: Arial, sans-serif;
             color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s;
+            scroll-behavior: smooth;
+        }
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+        header img {
+            max-height: 100%;
+            max-width: 50px;
+            object-fit: contain;
+            pointer-events: none;
+            user-select: none;
+        }
+        /* Menu Burger */
+        .menu-icon {
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: -2px 0 5px rgba(255, 255, 255, 0.1);
+            transition: right 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 15px 20px;
+            display: block;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #222;
+        }
+        /* Konten utama */
+        .content {
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            margin-bottom: 10px;
+            min-height: 100vh;
+            padding-top: 80px;
         }
-
-        .dropbtn i {
+        .main-logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+            pointer-events: none;
+            user-select: none;
+        }
+        .telegram-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            background-color: #084A81;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .telegram-btn i {
             margin-right: 8px;
         }
-
-        .floating-btn {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 24px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+        .telegram-btn:hover {
+            background-color: #063D70;
         }
-
-        .floating-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.1);
-        }
-
-        .floating-menu {
-            position: fixed;
-            bottom: 150px;
-            right: 20px;
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .floating-menu a {
-            text-decoration: none;
-            background-color: #333;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
+        /* Card About */
+        .about-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-size: 14px;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            margin-top: 40px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
-
-        .floating-menu a:hover {
-            background-color: #007BFF;
+        .about-card h2 {
+            color: #0D47A1;
+            margin-bottom: 10px;
         }
-
-        /* Shadow effect when menu is visible */
-        .floating-menu a.active {
-            box-shadow: 0 0 15px #007BFF;
-            transform: scale(1.05);
+        .about-card p {
+            font-size: 16px;
+            line-height: 1.6;
         }
-
+        /* Footer */
         footer {
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
-            padding: 10px 0;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 40px;
+        }
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .footer-logos img {
+            width: 80px;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease, transform 0.2s ease;
+        }
+        .footer-logos img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body>
-    <div class="content">
-        <div class="video-container">
-            <video src="1735860081323.mp4" autoplay muted loop></video>
-        </div>
-        <!-- Komunitas Button -->
-        <button class="dropbtn" id="communityButton"><i class="fas fa-server"></i>Komunitas</button>
-        
-        <!-- Staff Organisasi Button -->
-        <button class="dropbtn" id="staffButton"><i class="fas fa-users"></i> Staff Organisasi</button>
+<body oncontextmenu="return false">
+    <header>
+        <img src="image/nyx.png" alt="Logo Header" class="protected-logo">
+        <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
+    </header>
 
-        <!-- Konten Tiktok Button -->
-        <button class="dropbtn" id="tiktokButton"><i class="fab fa-tiktok"></i> Konten Tiktok</button>
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <a href="#" onclick="toggleMenu()">Home</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#" onclick="toggleMenu()">Services</a>
+        <a href="#" onclick="toggleMenu()">Contact</a>
     </div>
 
-    <!-- Floating Button -->
-    <button class="floating-btn" id="floatingButton"><i id="floatingIcon" class="fas fa-plus"></i></button>
-    <div class="floating-menu" id="floatingMenu">
-        <a href="faq.html" id="faqLink">FAQ</a>
-        <a href="pengumumanubot.html" id="announcementLink">Pengumuman</a>
+    <div class="content">
+        <img src="image/nyx.png" alt="Logo Nyx" class="main-logo protected-logo">
+        <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
+            <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
+
+        <!-- Card About -->
+        <div class="about-card" id="about">
+            <h2>About</h2>
+            <p><strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan.  
+            <br><br>
+            Di sini, kita ngobrol, bercanda, dan kadang ngoprek website atau proyek iseng lainnya.  
+            <br><br>
+            Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!</p>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; <span id="currentYear"></span> NyxianNetwork. All rights reserved.</p>
+        <p>&copy; <span id="currentYear"></span> Nyxian Network. All rights reserved.</p>
+        <div class="footer-logos">
+            <img src="image/nyx.png" alt="Nyxian Logo">
+            <img src="https://www.komdigi.go.id/brand-berakhlak-tagline.png" alt="BerAKHLAK Logo">
+        </div>
     </footer>
 
     <script>
-        // Komunitas button functionality
-        var communityButton = document.getElementById("communityButton");
-        communityButton.addEventListener("click", function(event) {
-            window.location.href = "https://t.me/NyxianNetwork";
-        });
+        function toggleMenu() {
+            var sidebar = document.getElementById("sidebar");
+            var menuIcon = document.getElementById("menuIcon");
 
-        var staffButton = document.getElementById("staffButton");
-        staffButton.addEventListener("click", function(event) {
-            window.location.href = "/staff";
-        });
-
-        // Floating Button and Menu Functionality
-        var floatingButton = document.getElementById("floatingButton");
-        var floatingMenu = document.getElementById("floatingMenu");
-        var floatingIcon = document.getElementById("floatingIcon");
-        var faqLink = document.getElementById("faqLink");
-        var announcementLink = document.getElementById("announcementLink");
-
-        floatingButton.addEventListener("click", function() {
-            // Toggle menu visibility
-            if (floatingMenu.style.display === "none" || floatingMenu.style.display === "") {
-                floatingMenu.style.display = "flex";
-                // Add shadow effect to links
-                faqLink.classList.add("active");
-                announcementLink.classList.add("active");
-                // Change icon to "x"
-                floatingIcon.classList.remove("fa-plus");
-                floatingIcon.classList.add("fa-times");
+            if (sidebar.style.right === "-250px" || sidebar.style.right === "") {
+                sidebar.style.right = "0";
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-times");
             } else {
-                floatingMenu.style.display = "none";
-                // Remove shadow effect from links
-                faqLink.classList.remove("active");
-                announcementLink.classList.remove("active");
-                // Change icon back to "+"
-                floatingIcon.classList.remove("fa-times");
-                floatingIcon.classList.add("fa-plus");
+                sidebar.style.right = "-250px";
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars");
             }
-        });
+        }
 
-        // Set the current year in the footer
         document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
 </body>
