@@ -122,7 +122,7 @@
         }
         /* Footer */
         footer {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #0D47A1; /* Warna footer */
             color: white;
             text-align: center;
             padding: 20px;
@@ -131,11 +131,13 @@
         footer img {
             width: 50px;
             height: auto;
-            transition: all 0.3s ease;
+            filter: grayscale(100%); /* Default grayscale */
+            transition: filter 0.3s ease, transform 0.3s ease;
             cursor: pointer;
         }
         footer img:hover {
-            filter: sepia(1) saturate(4);
+            filter: grayscale(0); /* Warna penuh saat hover */
+            transform: scale(1.1); /* Efek zoom ketika hover */
         }
         footer .contact-info {
             margin-top: 20px;
@@ -146,7 +148,7 @@
             text-decoration: none;
         }
         footer .contact-info a:hover {
-            color: #0D47A1;
+            color: #FFEB3B; /* Warna hover untuk kontak */
         }
     </style>
 </head>
