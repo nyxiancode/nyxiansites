@@ -148,6 +148,15 @@
             filter: grayscale(0%);
             transform: scale(1.1);
         }
+        /* Contact Section */
+        .contact-info {
+            margin-top: 20px;
+            font-size: 16px;
+            color: white;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body oncontextmenu="return false">
@@ -160,8 +169,8 @@
     <div class="sidebar" id="sidebar">
         <a href="#" onclick="toggleMenu()">Home</a>
         <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
         <a href="#" onclick="toggleMenu()">Services</a>
-        <a href="#" onclick="toggleMenu()">Contact</a>
     </div>
 
     <div class="content">
@@ -183,10 +192,11 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; <span id="currentYear"></span> Nyxian Network. All rights reserved.</p>
-        <div class="footer-logos">
-            <img src="image/nyx.png" alt="Nyxian Logo">
-            <img src="https://www.komdigi.go.id/brand-berakhlak-tagline.png" alt="BerAKHLAK Logo">
+        <img src="image/nyx.png" alt="Nyxian Logo">
+        <div class="contact-info" id="contact">
+            <p><strong>Email:</strong> nyxiannetwork@gmail.com</p>
+            <p><strong>Telegram Channel:</strong> @NyxianNetwork</p>
+            <p><strong>Telegram Chat:</strong> @KatsuID</p>
         </div>
     </footer>
 
