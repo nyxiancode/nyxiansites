@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header dengan Logo, Menu Burger, dan About Card</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Header dengan Logo, Menu Burger, dan About Section</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
     <style>
         body {
             background-color: black;
             margin: 0;
             font-family: Arial, sans-serif;
             color: white;
-            text-align: center;
+            scroll-behavior: smooth; /* Animasi scroll */
         }
         /* Header */
         header {
@@ -98,40 +98,22 @@
         .telegram-btn:hover {
             background-color: #063D70;
         }
-        /* Efek glitch */
-        .telegram-btn:active {
-            animation: glitch 0.2s ease-out;
-        }
-        @keyframes glitch {
-            0% { transform: translateX(0) scale(1); }
-            10% { transform: translateX(-4px) scale(1.1); }
-            20% { transform: translateX(4px) scale(1.1); }
-            30% { transform: translateX(-4px) scale(1.05); }
-            40% { transform: translateX(4px) scale(1.05); }
-            50% { transform: translateX(0) scale(1); }
-        }
         /* Card About */
         .about-card {
-            background: rgba(15, 15, 15, 0.8);
-            border: 2px solid #0D47A1;
-            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Warna semi transparan */
             padding: 20px;
-            max-width: 400px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
             margin-top: 40px;
-            box-shadow: 0px 0px 10px rgba(13, 71, 161, 0.8);
-            transition: transform 0.3s ease-in-out;
-        }
-        .about-card:hover {
-            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
         .about-card h2 {
             color: #0D47A1;
-            font-size: 22px;
             margin-bottom: 10px;
         }
         .about-card p {
-            font-size: 14px;
-            color: #ccc;
+            font-size: 16px;
             line-height: 1.6;
         }
     </style>
@@ -145,7 +127,7 @@
     <!-- Sidebar Menu -->
     <div class="sidebar" id="sidebar">
         <a href="#" onclick="toggleMenu()">Home</a>
-        <a href="#" onclick="toggleMenu()">About</a>
+        <a href="#about" onclick="toggleMenu()">About</a> <!-- Link ke About -->
         <a href="#" onclick="toggleMenu()">Services</a>
         <a href="#" onclick="toggleMenu()">Contact</a>
     </div>
@@ -157,10 +139,13 @@
         </a>
 
         <!-- Card About -->
-        <div class="about-card">
+        <div class="about-card" id="about">
             <h2>About</h2>
-            <p><strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan. Di sini, kita ngobrol, bercanda, dan kadang ngoprek website atau proyek iseng lainnya.</p>
-            <p>Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!</p>
+            <p><strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan.  
+            <br><br>
+            Di sini, kita ngobrol, bercanda, dan kadang ngoprek website atau proyek iseng lainnya.  
+            <br><br>
+            Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!</p>
         </div>
     </div>
 
@@ -169,13 +154,10 @@
             var sidebar = document.getElementById("sidebar");
             var menuIcon = document.getElementById("menuIcon");
 
-            // Jika sidebar sedang tertutup, buka
             if (sidebar.style.right === "-250px" || sidebar.style.right === "") {
                 sidebar.style.right = "0";
-                menuIcon.classList.add("open"); // Tambahkan efek ikon berubah
             } else {
                 sidebar.style.right = "-250px";
-                menuIcon.classList.remove("open");
             }
         }
     </script>
