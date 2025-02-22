@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header dengan Logo dan Menu Burger</title>
+    <title>Nyxian Network</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
     <style>
         body {
             background-color: black;
             margin: 0;
             font-family: Arial, sans-serif;
+            color: white;
         }
         /* Header */
         header {
-            background-color: rgba(0, 0, 0, 0.7); /* Hitam transparan */
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
             position: fixed;
             top: 0;
@@ -41,7 +42,7 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -250px; /* Sembunyikan sidebar di awal */
+            right: -250px;
             width: 250px;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
@@ -61,14 +62,6 @@
         }
         .sidebar a:hover {
             background-color: #222;
-        }
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
         }
         /* Konten utama */
         .content {
@@ -117,6 +110,32 @@
             40% { transform: translateX(4px) scale(1.05); }
             50% { transform: translateX(0) scale(1); }
         }
+        /* About Card */
+        .about-card {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #0A192F 10%, #021526 90%);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0px 0px 15px rgba(0, 144, 255, 0.3);
+            text-align: center;
+            border: 1px solid rgba(0, 144, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .about-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 0px 20px rgba(0, 144, 255, 0.5);
+        }
+        .about-card h2 {
+            color: #00C3FF;
+            margin-bottom: 10px;
+        }
+        .about-card p {
+            color: #B0C7D8;
+            font-size: 14px;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -138,6 +157,17 @@
         <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
             <i class="fab fa-telegram-plane"></i> Telegram
         </a>
+        
+        <!-- About Card -->
+        <div class="about-card">
+            <h2>About Nyxian Network</h2>
+            <p>
+                <strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan.  
+                Di sini, kita ngobrol, bercanda, dan kadang ngoprek website atau proyek iseng lainnya.  
+                <br><br>
+                Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!
+            </p>
+        </div>
     </div>
 
     <script>
