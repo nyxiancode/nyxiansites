@@ -25,6 +25,14 @@
             text-transform: uppercase;
             color: #003366; /* Biru tua gelap */
         }
+        .card {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            margin: 20px 0;
+        }
         p {
             font-size: 1.2rem;
             color: #a9a9a9;
@@ -35,6 +43,20 @@
             height: auto;
             cursor: none;
             pointer-events: none;
+        }
+        .button {
+            background-color: #003366; /* Biru tua gelap */
+            color: white;
+            padding: 12px 20px;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #00509e;
         }
         /* Disable right-click and long press on image */
         img {
@@ -53,7 +75,11 @@
 <body>
     <img src="image/nyx.png" alt="Logo Nyx" oncontextmenu="return false;">
     <h1>404</h1>
-    <p>Halaman yang Anda cari tidak dapat ditemukan.</p>
+    <div class="card">
+        <p>Halaman yang Anda cari tidak dapat ditemukan.</p>
+        <a href="index.html" class="button">Home</a>
+        <a href="https://t.me/KatsuID" class="button">Contact Me</a>
+    </div>
 
     <script>
         // Prevent right-click on the page
