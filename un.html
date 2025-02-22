@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyxian - Futuristic Organization</title>
+    <title>Nyxian Organization</title>
     <style>
-        /* Global Styles */
+        /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
@@ -13,116 +13,164 @@
             font-family: Arial, sans-serif;
         }
 
+        /* Warna dasar */
         body {
-            background-color: #0a0a0a;
+            background-color: black;
             color: white;
-            text-align: center;
         }
 
         /* Header */
         header {
-            background: linear-gradient(90deg, #111, #222);
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Navigation */
-        nav {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 15px;
-            background-color: #1a1a1a;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 0, 50, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
-        nav a {
-            color: #0ff;
+        header img {
+            width: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: cyan;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: #ff0;
-            transform: scale(1.1);
+        nav ul li a:hover {
+            color: white;
         }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-
-        .hero img {
-            width: 120px;
-            height: auto;
-            margin-bottom: 20px;
-            animation: float 3s infinite alternate ease-in-out;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-10px); }
+            text-align: center;
+            background: url('image/nyx-bg.jpg') no-repeat center center/cover;
+            position: relative;
+            padding-top: 80px;
         }
 
         .hero h1 {
-            font-size: 36px;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #0ff, #ff0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 50px;
+            font-weight: bold;
+            color: cyan;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .hero p {
-            font-size: 18px;
-            color: #bbb;
-            max-width: 600px;
+            font-size: 20px;
+            color: white;
             margin-top: 10px;
+            opacity: 0.8;
+            animation: slideUp 2s ease-in-out;
         }
 
-        /* Sections */
-        .section {
-            padding: 50px 20px;
+        /* Tentang */
+        .about {
+            padding: 80px 50px;
+            text-align: center;
+            background: rgba(10, 10, 30, 0.9);
         }
 
-        .section h2 {
-            font-size: 28px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+        .about h2 {
+            color: cyan;
+            font-size: 32px;
         }
 
-        .section p {
-            font-size: 16px;
-            color: #aaa;
-            max-width: 700px;
-            margin: auto;
+        .about p {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* Layanan */
+        .services {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 50px;
+            background: black;
+        }
+
+        .service-box {
+            width: 300px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            background: rgba(0, 0, 50, 0.8);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .service-box:hover {
+            transform: scale(1.05);
+        }
+
+        .service-box h3 {
+            color: cyan;
+            font-size: 24px;
         }
 
         /* Footer */
         footer {
-            background: #111;
+            text-align: center;
             padding: 20px;
-            font-size: 14px;
-            color: #666;
-            margin-top: 30px;
+            background: rgba(0, 0, 50, 0.8);
         }
 
-        /* Responsive */
+        footer p {
+            color: white;
+            opacity: 0.7;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsif */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 28px;
+            header {
+                flex-direction: column;
+                text-align: center;
             }
+
+            nav ul {
+                margin-top: 10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
             .hero p {
                 font-size: 16px;
-            }
-            nav {
-                flex-direction: column;
             }
         }
     </style>
@@ -131,51 +179,48 @@
 
     <!-- Header -->
     <header>
-        Nyxian Organization
+        <img src="image/nyx.png" alt="Nyxian Logo">
+        <nav>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <!-- Navigation -->
-    <nav>
-        <a href="#about">Tentang</a>
-        <a href="#mission">Misi</a>
-        <a href="#team">Tim</a>
-        <a href="#contact">Kontak</a>
-    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="image/nyx.png" alt="Nyxian Logo">
         <h1>Selamat Datang di Nyxian</h1>
-        <p>Membangun masa depan dengan teknologi dan inovasi</p>
+        <p>Organisasi Futuristik untuk Masa Depan</p>
     </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
+    <!-- Tentang -->
+    <section id="about" class="about">
         <h2>Tentang Nyxian</h2>
-        <p>Nyxian adalah organisasi futuristik yang berfokus pada teknologi canggih, inovasi, dan penelitian AI. Kami percaya bahwa kemajuan teknologi akan membawa perubahan positif bagi dunia.</p>
+        <p>Nyxian adalah organisasi yang berfokus pada inovasi teknologi dan eksplorasi dunia digital.</p>
     </section>
 
-    <!-- Mission Section -->
-    <section class="section" id="mission">
-        <h2>Misi Kami</h2>
-        <p>Mengembangkan teknologi yang membantu kehidupan manusia, menciptakan solusi berbasis AI, dan membangun komunitas yang kuat di bidang inovasi.</p>
-    </section>
-
-    <!-- Team Section -->
-    <section class="section" id="team">
-        <h2>Tim Kami</h2>
-        <p>Nyxian terdiri dari para ahli teknologi, ilmuwan, dan inovator dari seluruh dunia. Kami bekerja sama untuk menciptakan masa depan yang lebih baik.</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <h2>Kontak Kami</h2>
-        <p>Email: contact@nyxian.org | Instagram: @nyxian.tech</p>
+    <!-- Layanan -->
+    <section id="services" class="services">
+        <div class="service-box">
+            <h3>Pengembangan AI</h3>
+            <p>Meneliti dan mengembangkan kecerdasan buatan.</p>
+        </div>
+        <div class="service-box">
+            <h3>Keamanan Cyber</h3>
+            <p>Menjaga keamanan data dan sistem informasi.</p>
+        </div>
+        <div class="service-box">
+            <h3>Eksplorasi Digital</h3>
+            <p>Mengeksplorasi dunia digital dan blockchain.</p>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        &copy; 2025 Nyxian. Semua Hak Dilindungi.
+    <footer id="contact">
+        <p>&copy; 2025 Nyxian Organization. Semua Hak Dilindungi.</p>
     </footer>
 
 </body>
