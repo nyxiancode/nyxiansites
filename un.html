@@ -23,10 +23,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 60px; /* Ukuran header */
         }
         header img {
-            width: 50px; /* Ukuran logo kecil di header */
-            height: auto;
+            max-height: 100%; /* Pastikan logo tidak terpotong */
+            max-width: 100px; /* Batasi lebar agar tidak terlalu besar */
+            object-fit: contain; /* Menjaga proporsi gambar agar tidak terpotong */
         }
         /* Konten utama */
         .content {
@@ -37,10 +39,10 @@
             height: calc(100vh - 60px); /* Mengurangi tinggi header */
             margin-top: 60px; /* Memberi jarak antara header dan konten */
         }
-        img {
-            width: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
-            height: auto; /* Menjaga rasio aspek gambar */
-            margin-top: -50px; /* Menggeser logo sedikit ke atas */
+        .main-logo {
+            width: 150px; /* Ukuran logo utama di tengah halaman */
+            height: auto;
+            margin-top: -50px;
         }
         .telegram-btn {
             display: flex;
@@ -95,7 +97,7 @@
     </header>
     
     <div class="content">
-        <img src="image/nyx.png" alt="Logo Nyx">
+        <img src="image/nyx.png" alt="Logo Nyx" class="main-logo">
         <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
             <i class="fab fa-telegram-plane"></i> Telegram
         </a>
