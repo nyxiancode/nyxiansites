@@ -69,19 +69,19 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 60px);
-            margin-top: 60px;
+            min-height: 100vh;
+            padding-top: 80px; /* Menyesuaikan agar tidak tertutup header */
         }
         .main-logo {
             width: 150px;
             height: auto;
-            margin-top: -50px;
+            margin-bottom: 20px;
         }
         .telegram-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 10px;
             background-color: #084A81;
             color: white;
             border: none;
@@ -100,7 +100,7 @@
         }
         /* Card About */
         .about-card {
-            background-color: rgba(255, 255, 255, 0.1); /* Warna semi transparan */
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
             max-width: 500px;
@@ -152,7 +152,6 @@
     <script>
         function toggleMenu() {
             var sidebar = document.getElementById("sidebar");
-            var menuIcon = document.getElementById("menuIcon");
 
             if (sidebar.style.right === "-250px" || sidebar.style.right === "") {
                 sidebar.style.right = "0";
