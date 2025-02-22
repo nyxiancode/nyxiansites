@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo di Tengah</title>
+    <title>Logo di Tengah dengan Header</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Menambahkan Font Awesome -->
     <style>
         body {
             background-color: black;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #084A81; /* Warna biru tua */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        .content {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            flex-direction: column;
+            margin-top: 100px; /* Memberikan ruang untuk header */
         }
         img {
-            width: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
-            height: auto; /* Menjaga rasio aspek gambar */
-            margin-top: -50px; /* Menggeser logo sedikit ke atas */
+            width: 150px; /* Ukuran logo */
+            height: auto;
+            margin-top: -50px;
         }
         .telegram-btn {
             display: flex;
@@ -33,15 +46,14 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.3s ease; /* Transisi halus */
+            transition: all 0.3s ease;
         }
         .telegram-btn i {
-            margin-right: 8px; /* Jarak antara ikon dan teks */
+            margin-right: 8px;
         }
         .telegram-btn:hover {
-            background-color: #063D70; /* Efek hover */
+            background-color: #063D70;
         }
-        /* Efek glitch */
         .telegram-btn:active {
             animation: glitch 0.2s ease-out;
         }
@@ -68,9 +80,14 @@
     </style>
 </head>
 <body>
-    <img src="image/nyx.png" alt="Logo Nyx">
-    <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
-        <i class="fab fa-telegram-plane"></i> Telegram
-    </a>
+    <header>
+        <h1>Selamat Datang di Nyxian Network</h1>
+    </header>
+    <div class="content">
+        <img src="image/nyx.png" alt="Logo Nyx">
+        <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
+            <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
+    </div>
 </body>
 </html>
