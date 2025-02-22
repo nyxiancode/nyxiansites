@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header dengan Logo, Menu Burger, dan About Section</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             background-color: black;
             margin: 0;
             font-family: Arial, sans-serif;
             color: white;
-            scroll-behavior: smooth; /* Animasi scroll */
+            scroll-behavior: smooth;
         }
         /* Header */
         header {
@@ -31,6 +31,8 @@
             max-height: 100%;
             max-width: 50px;
             object-fit: contain;
+            pointer-events: none; /* Mencegah interaksi */
+            user-select: none; /* Mencegah seleksi */
         }
         /* Menu Burger */
         .menu-icon {
@@ -38,7 +40,7 @@
             color: white;
             cursor: pointer;
         }
-        /* Sidebar Menu */
+        /* Sidebar */
         .sidebar {
             position: fixed;
             top: 0;
@@ -70,12 +72,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding-top: 80px; /* Menyesuaikan agar tidak tertutup header */
+            padding-top: 80px;
         }
         .main-logo {
             width: 150px;
             height: auto;
             margin-bottom: 20px;
+            pointer-events: none; /* Mencegah interaksi */
+            user-select: none; /* Mencegah seleksi */
         }
         .telegram-btn {
             display: flex;
@@ -118,22 +122,22 @@
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false"> <!-- Mencegah klik kanan di seluruh halaman -->
     <header>
-        <img src="image/nyx.png" alt="Logo Header">
+        <img src="image/nyx.png" alt="Logo Header" class="protected-logo">
         <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
     </header>
 
     <!-- Sidebar Menu -->
     <div class="sidebar" id="sidebar">
         <a href="#" onclick="toggleMenu()">Home</a>
-        <a href="#about" onclick="toggleMenu()">About</a> <!-- Link ke About -->
+        <a href="#about" onclick="toggleMenu()">About</a>
         <a href="#" onclick="toggleMenu()">Services</a>
         <a href="#" onclick="toggleMenu()">Contact</a>
     </div>
 
     <div class="content">
-        <img src="image/nyx.png" alt="Logo Nyx" class="main-logo">
+        <img src="image/nyx.png" alt="Logo Nyx" class="main-logo protected-logo">
         <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
             <i class="fab fa-telegram-plane"></i> Telegram
         </a>
@@ -159,6 +163,13 @@
                 sidebar.style.right = "-250px";
             }
         }
+
+        // Mencegah klik kanan & klik lama pada logo
+        document.querySelectorAll('.protected-logo').forEach(img => {
+            img.addEventListener('contextmenu', event => event.preventDefault());
+            img.addEventListener('mousedown', event => event.preventDefault());
+            img.addEventListener('touchstart', event => event.preventDefault(), { passive: false });
+        });
     </script>
 </body>
 </html>
