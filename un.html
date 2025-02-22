@@ -25,7 +25,7 @@
             align-items: center;
             justify-content: center;
             margin-top: 20px;
-            background-color: #0088cc;
+            background-color: #003366; /* Biru tua */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -33,19 +33,54 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            transition: transform 0.1s ease;
         }
         .telegram-btn i {
             margin-right: 8px; /* Jarak antara ikon dan teks */
         }
         .telegram-btn:hover {
-            background-color: #006fa1; /* Efek hover */
+            background-color: #002244; /* Efek hover lebih gelap */
+        }
+        /* Efek glitch */
+        @keyframes glitch {
+            0% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-5px);
+            }
+            40% {
+                transform: translateX(5px);
+            }
+            60% {
+                transform: translateX(-5px);
+            }
+            80% {
+                transform: translateX(5px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        .glitch {
+            animation: glitch 0.2s ease-in-out;
         }
     </style>
 </head>
 <body>
     <img src="image/nyx.png" alt="Logo Nyx">
-    <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
+    <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank" id="telegram-btn">
         <i class="fab fa-telegram-plane"></i> Telegram
     </a>
+
+    <script>
+        // Menambahkan efek glitch saat tombol diklik
+        document.getElementById('telegram-btn').addEventListener('click', function(e) {
+            this.classList.add('glitch');
+            setTimeout(() => {
+                this.classList.remove('glitch');
+            }, 200); // Menghapus efek glitch setelah 200ms
+        });
+    </script>
 </body>
 </html>
