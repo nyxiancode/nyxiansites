@@ -3,3 +3,9 @@ RewriteEngine On
 
 # Mengatur halaman 404 custom
 ErrorDocument 404 /404.html
+
+<Files "nyx.png">
+    Order Deny,Allow
+    Deny from all
+    Allow from env=REDIRECT_STATUS
+</Files>
