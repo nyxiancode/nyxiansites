@@ -1,0 +1,5 @@
+# Mengaktifkan mod_rewrite
+RewriteEngine On
+
+# Mengatur halaman 404 custom
+ErrorDocument 404 /404.html
