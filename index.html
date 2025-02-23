@@ -105,6 +105,9 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
+        .telegram-btn i {
+            margin-right: 8px;
+        }
         .telegram-btn:hover {
             background-color: #063D70;
         }
@@ -126,47 +129,8 @@
             font-size: 16px;
             line-height: 1.6;
         }
-        .about-card strong {
-            color: darkblue;
-        }
-        /* Popup */
-        .popup-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-        .popup {
-            background-color: black;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            position: relative;
-            color: white;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-        .popup img {
-            width: 100px;
-            margin-bottom: 15px;
-        }
-        .popup p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        .popup-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-            color: white;
+        .about-card p strong {
+            color: #0D47A1; /* Warna biru tua gelap */
         }
         /* Footer */
         footer {
@@ -174,6 +138,20 @@
             text-align: center;
             padding: 20px 10px;
             margin-top: 50px;
+        }
+        .footer-logo {
+            width: 100px;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+        .footer-logo:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+        .contact-section {
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -192,7 +170,9 @@
 
     <div class="content">
         <img src="image/nyx.png" alt="Logo Nyx" class="main-logo protected-logo">
-        <button class="telegram-btn" onclick="showPopup()">Lihat Donatur</button>
+        <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">
+            <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
 
         <!-- Card About -->
         <div class="about-card" id="about">
@@ -205,31 +185,33 @@
         </div>
     </div>
 
-    <!-- Popup -->
-    <div class="popup-container" id="popup">
-        <div class="popup">
-            <span class="popup-close" onclick="closePopup()">&times;</span>
-            <img src="image/nyx.png" alt="Logo Popup">
-            <p>Teruntuk Para Donatur, Terima kasih telah berdonasi kepada kami, sehingga kami mempunyai website kami sendiri dan akan kami kembangkan dengan memanfaatkan dana dari kalian.</p>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer>
         <p>&copy; <span id="year"></span> Nyxian Network. All Rights Reserved.</p>
+        <img src="image/nyx.png" alt="Logo Footer" class="footer-logo">
+        <div class="contact-section" id="contact">
+            <p>Email: nyxiannetwork@gmail.com</p>
+            <p>Telegram Channel: <a href="https://t.me/NyxianNetwork" style="color: white;">@NyxianNetwork</a></p>
+            <p>Telegram Chat: <a href="https://t.me/KatsuID" style="color: white;">@KatsuID</a></p>
+        </div>
     </footer>
 
     <script>
         function toggleMenu() {
             var sidebar = document.getElementById("sidebar");
-            sidebar.style.right = (sidebar.style.right === "0px") ? "-250px" : "0px";
+            var menuIcon = document.getElementById("menuIcon");
+
+            if (sidebar.style.right === "-250px" || sidebar.style.right === "") {
+                sidebar.style.right = "0";
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-times");
+            } else {
+                sidebar.style.right = "-250px";
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars");
+            }
         }
-        function showPopup() {
-            document.getElementById("popup").style.display = "flex";
-        }
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
+
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 </body>
