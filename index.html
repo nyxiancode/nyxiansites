@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nyxian Network</title>
+    <!-- Favicon untuk berbagai ukuran -->
     <link rel="icon" type="image/png" href="image/fav.png">
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="icon" type="image/png" sizes="96x96" href="image/favicon-96x96.png">
     <link rel="icon" type="image/svg+xml" href="image/favicon.svg">
+    <!-- Apple Touch Icon (untuk iOS) -->
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+    <!-- Web App Manifest -->
     <link rel="manifest" href="image/site.webmanifest">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
@@ -19,6 +22,7 @@
             color: white;
             scroll-behavior: smooth;
         }
+        /* Header */
         header {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
@@ -39,12 +43,14 @@
             pointer-events: none;
             user-select: none;
         }
+        /* Menu Burger */
         .menu-icon {
             font-size: 24px;
             color: white;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
+        /* Sidebar */
         .sidebar {
             position: fixed;
             top: 0;
@@ -68,6 +74,7 @@
         .sidebar a:hover {
             background-color: #222;
         }
+        /* Konten utama */
         .content {
             display: flex;
             flex-direction: column;
@@ -88,24 +95,23 @@
             align-items: center;
             justify-content: center;
             margin-top: 10px;
-            background-color: #0D47A1;
+            background-color: #084A81;
             color: white;
             border: none;
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
+            padding: 10px 20px;
+            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
         }
         .telegram-btn i {
-            margin-right: 10px;
-            font-size: 20px;
+            margin-right: 8px;
         }
         .telegram-btn:hover {
-            background-color: #08306A;
+            background-color: #063D70;
         }
+        /* Card About */
         .about-card {
             background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
@@ -124,55 +130,28 @@
             line-height: 1.6;
         }
         .about-card p strong {
-            color: #0D47A1;
+            color: #0D47A1; /* Warna biru tua gelap */
         }
+        /* Footer */
         footer {
             background-color: #222;
             text-align: center;
             padding: 20px 10px;
             margin-top: 50px;
         }
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-        .popup-content {
-            background: white;
-            color: black;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-            max-width: 400px;
-            position: relative;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-        }
-        .popup img {
+        .footer-logo {
             width: 100px;
-            height: auto;
-            margin-bottom: 15px;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
         }
-        .popup p {
-            font-size: 16px;
+        .footer-logo:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+        .contact-section {
+            margin-top: 20px;
+            font-size: 14px;
             line-height: 1.6;
-        }
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-            color: black;
-        }
-        .close-btn:hover {
-            color: red;
         }
     </style>
 </head>
@@ -182,11 +161,13 @@
         <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
     </header>
 
+    <!-- Sidebar Menu -->
     <div class="sidebar" id="sidebar">
         <a href="#" onclick="toggleMenu()">Home</a>
         <a href="#about" onclick="toggleMenu()">About</a>
         <a href="#contact" onclick="toggleMenu()">Contact</a>
         <a href="donasi.html" onclick="toggleMenu()">Donasi</a>
+        
     </div>
 
     <div class="content">
@@ -195,6 +176,7 @@
             <i class="fab fa-telegram-plane"></i> Telegram
         </a>
 
+        <!-- Card About -->
         <div class="about-card" id="about">
             <h2>About</h2>
             <p><strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan.  
@@ -205,15 +187,33 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; <span id="year"></span> Nyxian Network. All Rights Reserved.</p>
+        <img src="image/nyx.png" alt="Logo Footer" class="footer-logo">
+        <div class="contact-section" id="contact">
+            <p>Email: nyxiannetwork@gmail.com</p>
+            <p>Telegram Channel: <a href="https://t.me/NyxianNetwork" style="color: white;">@NyxianNetwork</a></p>
+            <p>Telegram Chat: <a href="https://t.me/KatsuID" style="color: white;">@KatsuID</a></p>
+        </div>
     </footer>
 
     <script>
         function toggleMenu() {
             var sidebar = document.getElementById("sidebar");
-            sidebar.style.right = sidebar.style.right === "0px" ? "-250px" : "0px";
+            var menuIcon = document.getElementById("menuIcon");
+
+            if (sidebar.style.right === "-250px" || sidebar.style.right === "") {
+                sidebar.style.right = "0";
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-times");
+            } else {
+                sidebar.style.right = "-250px";
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars");
+            }
         }
+
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 </body>
