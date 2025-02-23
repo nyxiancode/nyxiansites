@@ -59,6 +59,7 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            position: relative;
         }
         .qr-container h2 {
             color: #0D47A1;
@@ -67,9 +68,11 @@
         .qr-code {
             width: 200px;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
-        .qr-code:hover {
-            transform: scale(1.3);
+        .zoomed {
+            transform: scale(2);
+            transition: transform 0.3s ease;
         }
         /* Footer */
         footer {
@@ -103,7 +106,7 @@
     <div class="content">
         <div class="qr-container">
             <h2>Scan QR untuk Donasi</h2>
-            <img src="image/qr.png" alt="QR Code Donasi" class="qr-code">
+            <img src="image/qr.png" alt="QR Code Donasi" class="qr-code" id="qrCode" onclick="toggleZoom()">
         </div>
     </div>
 
@@ -120,6 +123,11 @@
 
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        function toggleZoom() {
+            var qrCode = document.getElementById("qrCode");
+            qrCode.classList.toggle("zoomed");
+        }
     </script>
 </body>
 </html>
