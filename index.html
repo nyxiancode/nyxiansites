@@ -92,6 +92,17 @@
             margin-top: 40px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
+        .about-card h2 {
+            color: #0D47A1;
+            margin-bottom: 10px;
+        }
+        .about-card p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .about-card p strong {
+            color: #0D47A1;
+        }
         footer {
             background-color: #222;
             text-align: center;
@@ -107,7 +118,6 @@
             filter: grayscale(0%);
             transform: scale(1.1);
         }
-        /* Popup Styling */
         .popup {
             position: fixed;
             top: 0;
@@ -172,14 +182,13 @@
         </a>
 
         <div class="about-card" id="about">
-    <h2>About</h2>
-    <p><strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan.  
-    <br><br>
-    Di sini, kita ngobrol, bercanda, dan kadang ngoprek website atau proyek iseng lainnya.  
-    <br><br>
-    Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!</p>
-</div>
-
+            <h2>About</h2>
+            <p><strong>Nyxian Network</strong> adalah tempat buat seru-seruan bareng, bebas berekspresi, dan nyebarin vibes positif tanpa ngilangin kebenasan.  
+            <br><br>
+            Di sini, kita ngobrol, bercanda, dan kadang ngoprek website atau proyek iseng lainnya.  
+            <br><br>
+            Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!</p>
+        </div>
     </div>
 
     <footer>
@@ -188,10 +197,10 @@
         <div class="contact-section" id="contact">
             <p>Email: nyxiannetwork@gmail.com</p>
             <p>Telegram Channel: <a href="https://t.me/NyxianNetwork" style="color: white;">@NyxianNetwork</a></p>
+            <p>Telegram Chat: <a href="https://t.me/KatsuID" style="color: white;">@KatsuID</a></p>
         </div>
     </footer>
 
-    <!-- Popup -->
     <div class="popup" id="popup">
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
@@ -203,16 +212,11 @@
     <script>
         function toggleMenu() {
             var sidebar = document.getElementById("sidebar");
-            var menuIcon = document.getElementById("menuIcon");
-            sidebar.style.right = (sidebar.style.right === "-250px" || sidebar.style.right === "") ? "0" : "-250px";
-            menuIcon.classList.toggle("fa-bars");
-            menuIcon.classList.toggle("fa-times");
+            sidebar.style.right = sidebar.style.right === "0px" ? "-250px" : "0px";
         }
-
         function closePopup() {
             document.getElementById("popup").style.display = "none";
         }
-
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 </body>
