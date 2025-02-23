@@ -48,6 +48,7 @@
             font-size: 24px;
             color: white;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
         /* Sidebar */
         .sidebar {
@@ -68,6 +69,7 @@
             font-size: 18px;
             padding: 15px 20px;
             display: block;
+            transition: background 0.3s;
         }
         .sidebar a:hover {
             background-color: #222;
@@ -85,8 +87,14 @@
             width: 150px;
             height: auto;
             margin-bottom: 20px;
+            pointer-events: none;
+            user-select: none;
         }
         .telegram-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
             background-color: #084A81;
             color: white;
             border: none;
@@ -95,6 +103,7 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
         .telegram-btn:hover {
             background-color: #063D70;
@@ -107,16 +116,18 @@
             max-width: 500px;
             text-align: center;
             margin-top: 40px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
         .about-card h2 {
             color: #0D47A1;
+            margin-bottom: 10px;
         }
         .about-card p {
             font-size: 16px;
             line-height: 1.6;
         }
         .about-card strong {
-            color: #0D47A1;
+            color: darkblue;
         }
         /* Popup */
         .popup-container {
@@ -139,6 +150,7 @@
             max-width: 400px;
             position: relative;
             color: white;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
         .popup img {
             width: 100px;
@@ -163,16 +175,11 @@
             padding: 20px 10px;
             margin-top: 50px;
         }
-        .contact-section {
-            margin-top: 20px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
     </style>
 </head>
 <body oncontextmenu="return false">
     <header>
-        <img src="image/nyx.png" alt="Logo Header">
+        <img src="image/nyx.png" alt="Logo Header" class="protected-logo">
         <i class="fas fa-bars menu-icon" id="menuIcon" onclick="toggleMenu()"></i>
     </header>
 
@@ -184,8 +191,7 @@
     </div>
 
     <div class="content">
-        <img src="image/nyx.png" alt="Logo Nyx" class="main-logo">
-        <a href="https://t.me/NyxianNetwork" class="telegram-btn" target="_blank">Telegram</a>
+        <img src="image/nyx.png" alt="Logo Nyx" class="main-logo protected-logo">
         <button class="telegram-btn" onclick="showPopup()">Lihat Donatur</button>
 
         <!-- Card About -->
