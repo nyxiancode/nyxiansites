@@ -83,6 +83,29 @@
             pointer-events: none;
             user-select: none;
         }
+        .telegram-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            background-color: #0D47A1;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .telegram-btn i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .telegram-btn:hover {
+            background-color: #08306A;
+        }
         .about-card {
             background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
@@ -108,15 +131,6 @@
             text-align: center;
             padding: 20px 10px;
             margin-top: 50px;
-        }
-        .footer-logo {
-            width: 100px;
-            filter: grayscale(100%);
-            transition: all 0.3s ease;
-        }
-        .footer-logo:hover {
-            filter: grayscale(0%);
-            transform: scale(1.1);
         }
         .popup {
             position: fixed;
@@ -193,29 +207,12 @@
 
     <footer>
         <p>&copy; <span id="year"></span> Nyxian Network. All Rights Reserved.</p>
-        <img src="image/nyx.png" alt="Logo Footer" class="footer-logo">
-        <div class="contact-section" id="contact">
-            <p>Email: nyxiannetwork@gmail.com</p>
-            <p>Telegram Channel: <a href="https://t.me/NyxianNetwork" style="color: white;">@NyxianNetwork</a></p>
-            <p>Telegram Chat: <a href="https://t.me/KatsuID" style="color: white;">@KatsuID</a></p>
-        </div>
     </footer>
-
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <img src="image/nyx.png" alt="Logo Popup">
-            <p>Teruntuk Para Donatur, Terima Kasih Telah Berdonasi Kepada Kami, Sehingga Kami Mempunyai Website Kami Sendiri dan Akan Kami Kembangkan dengan Memanfaatkan Dana dari Kalian</p>
-        </div>
-    </div>
 
     <script>
         function toggleMenu() {
             var sidebar = document.getElementById("sidebar");
             sidebar.style.right = sidebar.style.right === "0px" ? "-250px" : "0px";
-        }
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
         }
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
