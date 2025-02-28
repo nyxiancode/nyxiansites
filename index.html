@@ -10,20 +10,19 @@
     <meta name="keywords" content="Nyxian, NyxianNetwork, Nyxian Sites, Nyxian Telegram, Nyxian Sanctuary, Nyxian Website, Nyxian Grup">
     <meta name="author" content="Katsu">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nyxian Network">
-<meta property="og:description" content="Website Resmi dari Nyxian Network">
-<meta property="og:image" content="https://nyxian.web.id/image/nyx.png"> <!-- Pastikan ini benar -->
-<meta property="og:url" content="https://nyxian.web.id">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nyxian Network">
+    <meta property="og:description" content="Website Resmi dari Nyxian Network">
+    <meta property="og:image" content="https://nyxian.web.id/image/nyx.png"> <!-- Pastikan ini benar -->
+    <meta property="og:url" content="https://nyxian.web.id">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nyxian Network">
-<meta name="twitter:description" content="Website Resmi dari Nyxian Network">
-<meta name="twitter:image" content="https://nyxian.web.id/image/nyx.png"> <!-- Pastikan ini benar -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nyxian Network">
+    <meta name="twitter:description" content="Website Resmi dari Nyxian Network">
+    <meta name="twitter:image" content="https://nyxian.web.id/image/nyx.png"> <!-- Pastikan ini benar -->
 
-    
     <!-- Favicon untuk berbagai ukuran -->
     <link rel="icon" type="image/png" href="image/fav.png">
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
@@ -152,6 +151,69 @@
         .about-card p strong {
             color: #0D47A1; /* Warna biru tua gelap */
         }
+        /* Card Team */
+        .team-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-card h2 {
+            color: #0D47A1;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 10px;
+        }
+        .team-member {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .team-member.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .team-member:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+            border-color: #0D47A1;
+        }
+        .team-member .role {
+            display: block;
+            font-size: 14px;
+            color: #0D47A1;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .team-member .name {
+            display: block;
+            font-size: 16px;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .team-member .nickname {
+            display: block;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
         /* Footer */
         footer {
             background-color: #222;
@@ -185,9 +247,9 @@
     <div class="sidebar" id="sidebar">
         <a href="#" onclick="toggleMenu()">Home</a>
         <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#team" onclick="toggleMenu()">Team</a>
         <a href="#contact" onclick="toggleMenu()">Contact</a>
         <a href="donasi.html" onclick="toggleMenu()">Donasi</a>
-        
     </div>
 
     <div class="content">
@@ -205,108 +267,79 @@
             <br><br>
             Dengan semangat <strong>Phoenix Biru</strong>, kita terus berkembang, bangkit, dan tetap asik bareng. Yuk, gabung dan rasain sendiri keseruannya!</p>
         </div>
-    </div>
 
+        <!-- Card Team -->
+        <div class="team-card" id="team">
+            <h2>Struktur Organisasi/Team</h2>
+            <div class="team-grid">
+                <!-- Pendiri -->
+                <div class="team-member">
+                    <span class="role">Pendiri</span>
+                    <span class="name">@KatsuID</span>
+                    <span class="nickname">Nyxian Alpha</span>
+                </div>
 
-<!-- Struktur Organisasi / Team -->
-<section id="team" class="team-card">
-    <h2>Struktur Organisasi</h2>
+                <!-- Wakil Pendiri -->
+                <div class="team-member">
+                    <span class="role">Wakil Pendiri</span>
+                    <span class="name">@Excllntbzz</span>
+                    <span class="nickname">Nyxian Luna</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Wakil Pendiri</span>
+                    <span class="name">@idioute</span>
+                    <span class="nickname">Nyxian Beta</span>
+                </div>
 
-    <div class="team-section">
-        <h3>Pendiri</h3>
-        <p><a href="https://t.me/KatsuID" target="_blank">@KatsuID</a> <span> » Nyxian Alpha</span></p>
-    </div>
-
-    <div class="team-section">
-        <h3>Wakil Pendiri</h3>
-        <p><a href="https://t.me/Excllntbzz" target="_blank">@Excllntbzz</a> » Nyxian Luna</p>
-        <p><a href="https://t.me/SieraXD" target="_blank">@SieraXD</a></p>
-        <p><a href="https://t.me/idioute" target="_blank">@idioute</a> » Nyxian Beta</p>
-    </div>
-
-    <div class="team-section">
-        <h3>Administrator</h3>
-        <div class="admin-list">
-            <p><a href="https://t.me/Celly4u" target="_blank">@Celly4u</a></p>
-            <p><a href="https://t.me/MarflinArflinz" target="_blank">@MarflinArflinz</a></p>
-            <p><a href="https://t.me/Oxcelym" target="_blank">@Oxcelym</a></p>
-            <p><a href="https://t.me/vreinavaria" target="_blank">@vreinavaria</a> » Editor</p>
-            <p><a href="https://t.me/liooooraa" target="_blank">@liooooraa</a></p>
-            <p><a href="https://t.me/nay" target="_blank">ᶰʸˣ nay</a></p>
-            <p><a href="https://t.me/iCewetengil" target="_blank">@iCewetengil</a></p>
-            <p><a href="https://t.me/babyimhereforyou" target="_blank">@babyimhereforyou</a></p>
-            <p><a href="https://t.me/nyxxynkeyziaa" target="_blank">@nyxxynkeyziaa</a></p>
+                <!-- Admin -->
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">@Celly4u</span>
+                    <span class="nickname">Nyxian Howl</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">@MarflinArflinz</span>
+                    <span class="nickname">Nyxian Howl</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">@Oxcelym</span>
+                    <span class="nickname">Nyxian Howl</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">@vreinavaria</span>
+                    <span class="nickname">Nyxian Editor</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">@liooooraa</span>
+                    <span class="nickname">Nyxian Howl</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">ᶰʸˣ nay</span>
+                    <span class="nickname">Nyxian Howl</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">@iCewetengil</span>
+                    <span class="nickname">Nyxian Howl</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">@babyimhereforyou</span>
+                    <span class="nickname">Nyxian Howl</span>
+                </div>
+                <div class="team-member">
+                    <span class="role">Admin</span>
+                    <span class="name">@nyxxynkeyziaa</span>
+                    <span class="nickname">Nyxian Howl</span>
+                </div>
+            </div>
         </div>
     </div>
-</section>
-
-<style>
-    .team-card {
-        background: rgba(0, 0, 0, 0.7);
-        padding: 20px;
-        border-radius: 12px;
-        max-width: 500px;
-        margin: 40px auto;
-        text-align: center;
-        box-shadow: 0 0 10px rgba(0, 140, 255, 0.3);
-        color: white;
-        font-family: Arial, sans-serif;
-    }
-
-    .team-card h2 {
-        font-size: 22px;
-        color: #0D47A1;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-
-    .team-section {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .team-section h3 {
-        font-size: 18px;
-        color: #FFD700;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-    .team-section p {
-        font-size: 16px;
-        margin: 5px 0;
-        padding: 8px;
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.1);
-        display: inline-block;
-        transition: background 0.3s ease;
-    }
-
-    .team-section p:hover {
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    .team-section a {
-        color: #1E90FF;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .team-section a:hover {
-        text-decoration: underline;
-    }
-
-    .admin-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-    }
-</style>
-
-
-
 
     <!-- Footer -->
     <footer>
@@ -320,6 +353,7 @@
     </footer>
 
     <script>
+        // Fungsi untuk toggle menu sidebar
         function toggleMenu() {
             var sidebar = document.getElementById("sidebar");
             var menuIcon = document.getElementById("menuIcon");
@@ -335,6 +369,23 @@
             }
         }
 
+        // Fungsi untuk animasi muncul satu per satu saat di-scroll
+        const teamMembers = document.querySelectorAll(".team-member");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add("visible");
+                    }, index * 200); // Delay 200ms untuk setiap anggota
+                }
+            });
+        }, { threshold: 0.5 }); // Muncul saat 50% terlihat
+
+        teamMembers.forEach((member) => {
+            observer.observe(member);
+        });
+
+        // Tahun dinamis di footer
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 </body>
