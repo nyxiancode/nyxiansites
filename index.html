@@ -221,6 +221,12 @@
             padding: 20px 10px;
             margin-top: 50px;
         }
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Jarak antara dua gambar */
+            margin: 20px 0;
+        }
         .footer-logo {
             width: 100px;
             filter: grayscale(100%);
@@ -344,7 +350,10 @@
     <!-- Footer -->
     <footer>
         <p>&copy; <span id="year"></span> Nyxian Network. All Rights Reserved.</p>
-        <img src="image/nyx.png" alt="Logo Footer" class="footer-logo">
+        <div class="footer-logos">
+            <img src="image/nyx.png" alt="Logo Footer" class="footer-logo">
+            <img src="image/akhlak.png" alt="Akhlak Logo" class="footer-logo">
+        </div>
         <div class="contact-section" id="contact">
             <p>Email: nyxiannetwork@gmail.com</p>
             <p>Telegram Channel: <a href="https://t.me/NyxianNetwork" style="color: white;">@NyxianNetwork</a></p>
