@@ -160,18 +160,6 @@
             margin: 40px auto 0;
             padding: 20px;
             position: relative;
-            overflow: hidden;
-        }
-        .team-scroll-container {
-            overflow-x: auto;
-            padding-top: 60px;
-            margin-top: -40px;
-            pointer-events: none;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-        .team-scroll-container::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for Chrome/Safari/Opera */
         }
         .team-card h2 {
             color: #0D47A1;
@@ -184,32 +172,62 @@
             right: 0;
             top: 20px;
             z-index: 1;
-            background: linear-gradient(to bottom, 
-                rgba(0,0,0,0.9) 0%, 
-                rgba(0,0,0,0.7) 80%, 
-                transparent 100%);
+            background: transparent;
             padding-bottom: 20px;
+        }
+        .team-filters {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 60px;
+            z-index: 2;
+            background: rgba(0,0,0,0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .filter-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        .filter-btn.active {
+            background: #0D47A1;
+            transform: scale(1.1);
+        }
+        .filter-btn:hover {
+            background: #08306B;
+        }
+        .team-scroll-container {
+            overflow-x: auto;
+            padding-top: 60px;
+            margin-top: -40px;
+            scroll-behavior: smooth;
+            transition: scroll-left 0.3s ease-in-out;
         }
         .team-grid {
             display: flex;
             gap: 15px;
             padding: 10px 5px 20px;
             min-width: fit-content;
-            transition: transform 0.5s linear;
+            width: max-content;
         }
         .team-member {
             background-color: rgba(255, 255, 255, 0.05);
             padding: 15px;
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
             cursor: pointer;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
             min-width: 200px;
-            pointer-events: auto;
-            flex-shrink: 0;
         }
         .team-member.visible {
             opacity: 1;
@@ -239,6 +257,21 @@
             font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
             font-style: italic;
+        }
+        /* Scrollbar Custom */
+        .team-scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .team-scroll-container::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 3px;
+        }
+        .team-scroll-container::-webkit-scrollbar-thumb {
+            background-color: rgba(13,71,161,0.5);
+            border-radius: 3px;
+        }
+        .team-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #08306B;
         }
         /* Footer */
         footer {
@@ -303,69 +336,75 @@
         <!-- Card Team -->
         <div class="team-card" id="team">
             <h2>Struktur Organisasi/Team</h2>
+            <div class="team-filters">
+                <button class="filter-btn active" data-filter="all" onclick="filterTeam('all')">All</button>
+                <button class="filter-btn" data-filter="pendiri" onclick="filterTeam('pendiri')">Pendiri</button>
+                <button class="filter-btn" data-filter="wakil" onclick="filterTeam('wakil')">Wakil Pendiri</button>
+                <button class="filter-btn" data-filter="admin" onclick="filterTeam('admin')">Admin</button>
+            </div>
             <div class="team-scroll-container">
                 <div class="team-grid">
                     <!-- Pendiri -->
-                    <div class="team-member">
+                    <div class="team-member" data-role="pendiri">
                         <span class="role">Pendiri</span>
                         <span class="name">@KatsuID</span>
                         <span class="nickname">Nyxian Alpha</span>
                     </div>
 
                     <!-- Wakil Pendiri -->
-                    <div class="team-member">
+                    <div class="team-member" data-role="wakil">
                         <span class="role">Wakil Pendiri</span>
                         <span class="name">@Excllntbzz</span>
                         <span class="nickname">Nyxian Luna</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="wakil">
                         <span class="role">Wakil Pendiri</span>
                         <span class="name">@idioute</span>
                         <span class="nickname">Nyxian Beta</span>
                     </div>
 
                     <!-- Admin -->
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">@Celly4u</span>
                         <span class="nickname">Nyxian Howl</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">@MarflinArflinz</span>
                         <span class="nickname">Nyxian Howl</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">@Oxcelym</span>
                         <span class="nickname">Nyxian Howl</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">@vreinavaria</span>
                         <span class="nickname">Nyxian Editor</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">@liooooraa</span>
                         <span class="nickname">Nyxian Howl</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">ᶰʸˣ nay</span>
                         <span class="nickname">Nyxian Howl</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">@iCewetengil</span>
                         <span class="nickname">Nyxian Howl</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">@babyimhereforyou</span>
                         <span class="nickname">Nyxian Howl</span>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" data-role="admin">
                         <span class="role">Admin</span>
                         <span class="name">@nyxxynkeyziaa</span>
                         <span class="nickname">Nyxian Howl</span>
@@ -425,49 +464,87 @@
         // Tahun dinamis di footer
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Fungsi auto-scroll horizontal
-        function setupAutoScroll() {
-            const teamGrid = document.querySelector('.team-grid');
-            const container = document.querySelector('.team-scroll-container');
-            let isHovered = false;
-            let scrollAmount = 0;
+        // Auto-scroll Team Section
+        const scrollContainer = document.querySelector('.team-scroll-container');
+        const teamGrid = document.querySelector('.team-grid');
+        let autoScrollEnabled = true;
+        let scrollSpeed = 1;
+        let isHovered = false;
 
-            // Clone items untuk infinite scroll
-            teamGrid.innerHTML += teamGrid.innerHTML;
+        function startAutoScroll() {
+            let scrollWidth = teamGrid.scrollWidth - scrollContainer.clientWidth;
+            let currentScroll = scrollContainer.scrollLeft;
 
-            function animate() {
-                if(!isHovered) {
-                    scrollAmount += 1;
-                    if(scrollAmount >= teamGrid.scrollWidth/2) {
-                        scrollAmount = 0;
-                    }
-                    container.scrollLeft = scrollAmount;
+            if (autoScrollEnabled && !isHovered) {
+                if (currentScroll >= scrollWidth) {
+                    scrollContainer.scrollTo({ left: 0, behavior: 'instant' });
+                } else {
+                    scrollContainer.scrollBy(scrollSpeed, 0);
                 }
-                requestAnimationFrame(animate);
             }
-
-            // Handle hover
-            container.addEventListener('mouseenter', () => isHovered = true);
-            container.addEventListener('mouseleave', () => isHovered = false);
-
-            // Handle touch events untuk mobile
-            let touchStartX = 0;
-            let isTouching = false;
-
-            container.addEventListener('touchstart', (e) => {
-                touchStartX = e.touches[0].clientX;
-                isTouching = true;
-            });
-
-            container.addEventListener('touchend', () => {
-                isTouching = false;
-            });
-
-            animate();
+            requestAnimationFrame(startAutoScroll);
         }
 
-        // Inisialisasi setelah semua konten dimuat
-        window.addEventListener('load', setupAutoScroll);
+        // Handle hover
+        scrollContainer.addEventListener('mouseenter', () => isHovered = true);
+        scrollContainer.addEventListener('mouseleave', () => isHovered = false);
+
+        // Handle touch events
+        let touchStartX = 0;
+        scrollContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            autoScrollEnabled = false;
+        });
+
+        scrollContainer.addEventListener('touchend', () => {
+            setTimeout(() => autoScrollEnabled = true, 5000);
+        });
+
+        // Mulai auto-scroll
+        startAutoScroll();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            scrollContainer.scrollTo({ left: 0, behavior: 'instant' });
+        });
+
+        // Fungsi filter team
+        function filterTeam(role) {
+            const members = document.querySelectorAll('.team-member');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active class pada tombol
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.dataset.filter === role) btn.classList.add('active');
+            });
+
+            // Filter anggota tim
+            members.forEach(member => {
+                const memberRole = member.dataset.role;
+                if(role === 'all' || memberRole === role) {
+                    member.style.display = 'block';
+                    setTimeout(() => {
+                        member.style.opacity = '1';
+                        member.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    member.style.opacity = '0';
+                    member.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        member.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // Reset scroll position
+            scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+
+        // Inisialisasi filter default
+        document.addEventListener('DOMContentLoaded', () => {
+            filterTeam('all');
+        });
     </script>
 </body>
 </html>
